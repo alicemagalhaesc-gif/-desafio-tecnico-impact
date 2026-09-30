@@ -1,0 +1,1788 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Resolução do desafio técnico de Maria Alice Magalhães de Castro para a vaga de Pessoa Analista Pleno de Projetos de Aceleração e Comunidades: plano de 30 dias, riscos, stakeholders, acompanhamento, comunicação e visão do projeto.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Desafio técnico · Maria Alice Magalhães de Castro">
+<meta property="og:description" content="Proposta para organizar e conduzir os primeiros 30 dias de um programa de aceleração de negócios de impacto.">
+<meta name="theme-color" content="#1c395c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c395c'/%3E%3Crect x='7' y='7' width='11' height='11' fill='%23ffd546'/%3E%3Crect x='14' y='14' width='11' height='11' fill='%23cfeff3'/%3E%3C/svg%3E">
+<title>Resolução do Desafio Técnico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300&display=swap">
+<style>
+/* Layout: capa em mosaico (como a capa do desafio) + seções "Parte N" com painéis navy; cantos grandes só no canto superior direito, como as fotos do material.
+   Paleta do projeto: somente #812825, #7ebb55, #1c395c, #cfeff3, #ffd546, #f78a3d e #ffffff. Tema claro único, como o material do desafio. */
+:root{
+  --white:#ffffff;
+  --navy:#1c395c;
+  --burgundy:#812825;
+  --green:#7ebb55;
+  --aqua:#cfeff3;
+  --yellow:#ffd546;
+  --orange:#f78a3d;
+  --bg:var(--white);
+  --bg-alt:var(--white);
+  --surface:var(--white);
+  --surface-2:var(--aqua);
+  --ink:var(--navy);
+  --ink-title:var(--navy);
+  --ink-2:var(--navy);
+  --ink-3:var(--navy);
+  --line:var(--aqua);
+  --line-strong:var(--navy);
+  --panel:var(--navy);
+  --on-panel:var(--white);
+  --on-panel-2:var(--aqua);
+  --on-burgundy:var(--white);
+  --burgundy-ink:var(--burgundy);
+  --burgundy-tint:var(--aqua);
+  --on-aqua:var(--navy);
+  --on-yellow:var(--navy);
+  --front-acel:var(--navy);
+  --front-hack:var(--green);
+  --front-inv:var(--burgundy);
+  --front-gov:var(--yellow);
+  --st-good:var(--green);
+  --st-warn:var(--yellow);
+  --st-crit:var(--burgundy);
+  --on-st:var(--navy);
+  --unit-done:var(--navy);
+  --unit-todo:var(--burgundy);
+  --focus:var(--navy);
+  --font:"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --r-sig:4px 22px 4px 4px;
+  --r-panel:4px 36px 4px 4px;
+  color-scheme:light;
+  scrollbar-color:var(--navy) var(--white);
+}
+::selection{background:var(--yellow);color:var(--navy)}
+::-webkit-scrollbar{width:10px;height:10px;background:var(--white)}
+::-webkit-scrollbar-track{background:var(--white)}
+::-webkit-scrollbar-corner{background:var(--white)}
+::-webkit-scrollbar-thumb{background:var(--navy);border-radius:999px;border:2px solid var(--white)}
+
+*{box-sizing:border-box}
+html{scroll-padding-top:76px}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+p{margin:0}
+ul,ol{margin:0;padding:0}
+strong,b{font-weight:600}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+
+/* ---------- Capa ---------- */
+.hero{padding-block:clamp(28px,6vw,72px) clamp(32px,5vw,64px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(28px,4.5vw,64px);align-items:center}
+.hero-text{order:2;min-width:0}
+.mosaic{order:1}
+.mosaic{container-type:inline-size;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(108px,auto);gap:8px;grid-template-areas:"a b b c" "d b b e" "f f g e";border-radius:0 34px 34px 0;overflow:hidden}
+.tile{padding:14px 16px;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;min-width:0}
+.tile strong{font-weight:600;font-size:clamp(30px,3.4vw,42px);line-height:1}
+.tile span{font-size:13px;line-height:1.3;font-weight:400}
+.tile small{font-size:12px;line-height:1.4;font-weight:400;margin-top:4px}
+.ta{grid-area:a;background:var(--aqua);color:var(--navy)}
+.tb{grid-area:b;background:var(--navy);color:var(--white);padding:22px}
+.tb strong{font-size:clamp(56px,7vw,88px)}
+.tb span{font-size:15px}
+.tc{grid-area:c;background:var(--navy)}
+.td{grid-area:d;background:var(--burgundy);color:var(--white)}
+.te{grid-area:e;background:var(--yellow);color:var(--navy);padding:14px 12px}
+.te strong{font-size:clamp(40px,13.5cqi,72px);letter-spacing:-.02em}
+.tf{grid-area:f;background:var(--green)}
+.tg{grid-area:g;background:var(--white);border:2px solid var(--aqua)}
+.band{background:var(--burgundy);color:var(--on-burgundy);padding:16px 22px;display:flex;flex-direction:column;gap:2px;max-width:460px}
+.band-label{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--on-burgundy)}
+.band-name{font-size:20px;font-weight:600;line-height:1.3}
+.hero h1{font-weight:700;color:var(--ink-title);font-size:clamp(38px,5.2vw,56px);line-height:1.06;letter-spacing:-.015em;margin-top:26px}
+.subtitle{font-weight:400;font-size:clamp(18px,2.1vw,23px);line-height:1.45;color:var(--ink);margin-top:12px}
+.subtitle span{background:transparent}
+.context{font-size:14px;line-height:1.55;color:var(--ink-2);margin-top:14px;max-width:52ch}
+.thesis{font-size:17px;line-height:1.6;margin-top:22px;max-width:50ch}
+.threads{margin-top:22px}
+.threads-k{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.threads ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.threads li{font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;color:var(--navy);background:var(--aqua)}
+
+
+/* ---------- Navegação ---------- */
+.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--white);border-block:2px solid var(--line)}
+.toc ol{list-style:none;display:flex;gap:4px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.toc ol::-webkit-scrollbar{display:none}
+.toc a{display:flex;align-items:center;gap:7px;white-space:nowrap;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:500;color:var(--ink-2);text-decoration:none;transition:background-color .15s,color .15s}
+.toc a:hover{background:var(--surface-2);color:var(--navy)}
+.toc a[aria-current="location"]{background:var(--panel);color:var(--on-panel)}
+.toc .n{font-variant-numeric:tabular-nums}
+
+/* ---------- Seções ---------- */
+.section{--card:var(--surface);padding-block:clamp(52px,7.5vw,96px);border-top:2px solid var(--line)}
+.section.alt{--card:var(--bg);background:var(--bg-alt)}
+.part{display:flex;align-items:flex-end;gap:18px;font-size:20px;font-weight:700;line-height:1.2;color:var(--navy)}
+.part-label{padding-bottom:4px}
+.part-note{font-weight:300}
+.part-mark{width:64px;height:auto;flex:none;overflow:visible}
+.part-mark path{fill:var(--navy)}
+.section h2{font-size:clamp(30px,4.3vw,46px);line-height:1.12;letter-spacing:-.012em;color:var(--navy);font-weight:700;margin-top:16px;max-width:22ch}
+.section h2 .light{font-weight:200}
+.lead{font-size:clamp(17px,1.7vw,19px);line-height:1.6;max-width:64ch;margin-top:18px}
+.sub{margin-top:clamp(40px,5.5vw,64px)}
+.sub-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sub-num{font-size:13px;font-weight:600;color:var(--burgundy-ink);font-variant-numeric:tabular-nums}
+.sub h3{font-size:clamp(19px,2vw,22px);font-weight:600;color:var(--navy);line-height:1.3}
+.sub-intro{margin-top:8px;max-width:66ch;color:var(--ink-2);font-size:15.5px}
+.kicker{display:flex;flex-direction:column;gap:12px}
+.kicker::before{content:"";width:72px;height:2px;background:var(--yellow)}
+.kicker span{font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow)}
+.panel{background:var(--panel);color:var(--on-panel);border-radius:var(--r-panel);padding:clamp(22px,3.4vw,40px)}
+.label{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ---------- Premissas ---------- */
+.premissas{position:relative;overflow:hidden}
+.blob{position:absolute;top:0;right:max(16px,7vw);width:clamp(180px,26vw,320px);height:clamp(170px,22vw,280px);background:var(--aqua);border-radius:0 0 999px 999px;pointer-events:none}
+.premissas .wrap{position:relative}
+.prem-head{border-left:2px solid var(--navy);padding-left:18px}
+.prem-eyebrow{font-size:15px;font-weight:500;color:var(--navy)}
+.prem-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,48px);margin-top:clamp(32px,4.5vw,52px);align-items:start}
+.readlist{list-style:none;display:grid;gap:16px;margin-top:18px}
+.readlist li{font-size:15.5px;line-height:1.6;padding-top:16px;border-top:2px solid var(--line)}
+.readlist li:first-child{border-top:0;padding-top:0}
+.readlist b{color:var(--navy)}
+.panel .conn{list-style:none;display:grid;gap:18px;margin-top:22px}
+.panel .conn li{font-size:15px;line-height:1.6;color:var(--on-panel-2)}
+.panel .conn b{display:block;color:var(--on-panel);font-weight:600;margin-bottom:2px}
+.start{margin-top:clamp(32px,4.5vw,52px)}
+.start-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}
+.meter{background:var(--card);border:2px solid var(--line);border-radius:var(--r-sig);padding:18px 18px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.meter-k{font-size:13px;font-weight:500;color:var(--ink-2)}
+.meter-v{font-size:30px;font-weight:600;color:var(--navy);line-height:1.15}
+.meter-v small{font-size:15px;font-weight:400;color:var(--ink-2)}
+.units{display:flex;flex-wrap:wrap;gap:4px;margin-block:6px 4px}
+.u{width:14px;height:14px;border-radius:2px;background:var(--unit-done)}
+.u.todo{background:transparent;border:1.5px dashed var(--unit-todo)}
+.meter-note{font-size:13px;line-height:1.5;color:var(--ink-2)}
+.meter-note b{color:var(--ink)}
+.legend-inline{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:12.5px;color:var(--ink-2)}
+.legend-inline span{display:inline-flex;align-items:center;gap:6px}
+.legend-inline .u{width:11px;height:11px}
+
+/* ---------- Parte 1 ---------- */
+.prio-defs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.prio-def{background:var(--card);border:2px solid var(--line);border-radius:var(--r-sig);padding:16px 18px;min-width:0}
+.prio-def p{font-size:14.5px;line-height:1.55;margin-top:8px}
+.prio-def .name{font-weight:600;color:var(--navy)}
+.order-note{margin-top:14px;font-size:15px;color:var(--ink-2);max-width:70ch}
+.pill{display:inline-flex;align-items:center;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;letter-spacing:.03em;line-height:1.6;white-space:nowrap}
+.pill.p1{background:var(--burgundy);color:var(--on-burgundy)}
+.pill.p2{background:var(--orange);color:var(--navy)}
+.pill.p3{color:var(--ink-2);border:1px solid var(--line-strong);padding:1px 8px}
+
+.road-scroll{overflow-x:auto;margin-top:22px;padding-bottom:4px}
+.road{min-width:720px}
+.phases{display:flex;gap:6px}
+.phase{min-width:0;padding:12px 14px 14px;background:var(--card);border:2px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.phase:first-child{border-radius:4px 0 0 4px}
+.phase:last-child{border-radius:0 22px 4px 0}
+.ph-week{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy-ink)}
+.ph-dates{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.ph-name{font-size:14px;font-weight:500;color:var(--navy);line-height:1.35;margin-top:4px}
+.axis{position:relative;height:146px;margin-top:14px}
+.axis-line{position:absolute;left:0;right:0;top:10px;height:2px;background:var(--line-strong)}
+.axis-tick{position:absolute;top:4px;width:1px;height:14px;background:var(--line-strong)}
+.gate{position:absolute;top:0;height:100%}
+.gate .dia{position:absolute;top:4px;left:-7px;width:14px;height:14px;transform:rotate(45deg);background:var(--burgundy);border:2px solid var(--bg)}
+.gate.final .dia{background:var(--navy)}
+.gate .lead-line{position:absolute;left:0;top:20px;width:1px;background:var(--line-strong)}
+.gate .g-label{position:absolute;width:260px;font-size:12.5px;line-height:1.4;color:var(--ink-2)}
+.gate .g-label b{display:block;color:var(--ink);font-size:13px}
+.gate .g-label.to-left{right:8px;text-align:right}
+.gate .g-label.to-right{left:8px}
+
+.filter-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:30px}
+.seg{display:inline-flex;gap:4px;padding:4px;border:2px solid var(--line);border-radius:999px;background:var(--card)}
+.seg button{font:inherit;font-size:13px;font-weight:500;color:var(--ink-2);background:transparent;border:0;border-radius:999px;padding:6px 14px;cursor:pointer}
+.seg button:hover{color:var(--navy)}
+.seg button[aria-pressed="true"]{background:var(--panel);color:var(--on-panel)}
+.filter-count{font-size:13px;color:var(--ink-3)}
+
+table.data.plan{min-width:1260px;border-collapse:separate;border-spacing:0}
+.bleed{margin-inline:calc((100% - min(1360px, 100vw - 48px)) / 2)}
+table.data.plan th,table.data.plan td{padding-inline:12px}
+table.data.plan thead th{letter-spacing:.08em}
+table.data.plan td{border-bottom:0;border-top:2px solid var(--line)}
+table.plan th.c-n,table.plan td.c-n{width:64px;padding-right:0;font-variant-numeric:tabular-nums}
+table.plan td.c-n{color:var(--ink-3);font-weight:600;font-size:13px}
+table.plan th.w-act{width:22%}
+table.plan th.w-p{width:64px}
+table.plan th.w-pred{width:104px}
+table.plan th.w-q{width:10%}
+table.plan th.w-dur{width:76px}
+table.plan th.w-ini{width:68px}
+table.plan th.w-fim{width:76px}
+table.plan th.w-buf{width:92px}
+table.plan th.w-e{width:auto}
+table.plan td.c-buf{white-space:nowrap;font-variant-numeric:tabular-nums}
+table.plan td.c-buf b{display:block;font-weight:600;color:var(--ink)}
+table.plan td.c-buf span{display:block;font-size:12px;color:var(--ink-3)}
+table.plan td.c-buf .none{display:inline;font-size:inherit}
+table.plan td.c-dur{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink-2)}
+table.plan thead th .th-sub{display:block;margin-top:2px;font-size:11px;font-weight:400;letter-spacing:0;text-transform:none}
+table.plan td.c-pred{white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500}
+table.plan td.c-pred .none{color:var(--ink-3);font-weight:400}
+table.plan td.c-res{color:var(--ink)}
+table.plan td.c-act{color:var(--ink);font-weight:500}
+table.plan td.c-d{white-space:nowrap;color:var(--navy);font-weight:500;font-variant-numeric:tabular-nums}
+table.plan td.c-d.c-wrap{white-space:normal}
+table.dict tr.wk-head th,table.events tr.wk-head th,table.plan tr.wk-head th{padding:16px 12px 12px;background:var(--white);border-top:2px solid var(--navy);border-bottom:0;text-transform:none;letter-spacing:0;font-size:14px;font-weight:400;color:var(--navy)}
+table.plan tbody.wk:first-of-type tr.wk-head th,table.events tbody.wk:first-of-type tr.wk-head th{border-top:0}
+.wk-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.wk-k{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy)}
+.wk-d{font-size:13px;color:var(--navy);font-variant-numeric:tabular-nums}
+.wk-name{font-size:15.5px;font-weight:700;color:var(--navy)}
+.wk-gate{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--navy)}
+.wk-gate::before{content:"";flex:none;width:9px;height:9px;transform:rotate(45deg);background:var(--burgundy)}
+table.data.plan tr.root-row td{background:var(--white);border-top:0;border-bottom:0;padding-block:16px;color:var(--navy);font-weight:700}
+table.plan tr.root-row td.c-n{font-size:15px}
+table.plan tr.root-row td.c-act b{display:block;font-size:16px;font-weight:700}
+table.plan tr.root-row td.c-act span{display:block;margin-top:2px;font-size:12.5px;font-weight:400}
+table.plan th.w-prog{width:118px}
+table.plan th.w-risk-p{width:15%}
+table.plan td.c-riskp{color:var(--navy)}
+table.plan td.c-prog{white-space:nowrap}
+.prog{display:inline-flex;align-items:center;gap:4px}
+.prog-in{width:58px;font:inherit;font-size:14px;font-weight:600;color:var(--navy);background:var(--white);border:2px solid var(--aqua);border-radius:6px;padding:3px 6px;text-align:right;font-variant-numeric:tabular-nums}
+.prog-in:hover{border-color:var(--navy)}
+.prog-in:focus{outline:2px solid var(--navy);outline-offset:1px;border-color:var(--navy)}
+.prog-pct{font-weight:600;color:var(--navy)}
+.prog-bar{display:block;width:84px;height:6px;margin-top:8px;background:var(--aqua);border-radius:999px;overflow:hidden}
+.prog-bar i{display:block;height:100%;width:0;background:var(--navy);border-radius:999px;transition:width .2s}
+@media (prefers-reduced-motion: reduce){.prog-bar i{transition:none}}
+td.c-prog.done .prog-bar i{background:var(--green)}
+.prog-val{font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+table.data.dict{min-width:900px}
+table.data.dict th,table.data.dict td{padding-inline:12px}
+table.data.dict thead th{letter-spacing:.08em}
+table.data.dict td{border-bottom:0;border-top:2px solid var(--line)}
+table.dict th.c-n,table.dict td.c-n{width:64px;font-variant-numeric:tabular-nums}
+table.dict td.c-n{color:var(--navy);font-weight:600;font-size:13px}
+table.dict th.w-pkg{width:220px}
+table.dict th.w-desc{width:40%}
+table.data.dict tbody th.c-pkg{background:transparent;text-transform:none;letter-spacing:0;font-size:14px;font-weight:600;color:var(--navy);border-bottom:0;border-top:2px solid var(--line);padding:14px 12px;vertical-align:top;text-align:left}
+table.dict td.c-crit{color:var(--navy);font-weight:500}
+table.data.dict tr.wk-head td.wk-edt{background:var(--white);border-top:2px solid var(--navy);padding:16px 0 12px 12px;font-weight:700;font-size:15px;color:var(--navy);vertical-align:baseline}
+/* Colunas congeladas: EDT sempre; Atividade a partir de telas médias */
+table.data.plan td{background:var(--white)}
+table.plan thead th.c-n,table.plan td.c-n,table.plan td.wk-edt{position:sticky;left:0;z-index:1}
+table.plan thead th.c-n{z-index:5}
+@media (min-width:760px){
+  table.plan thead th.w-act,table.plan td.c-act,table.plan th.wk-title{position:sticky;left:var(--edt-w,64px);z-index:1;box-shadow:inset -2px 0 0 var(--aqua)}
+  table.plan thead th.w-act{z-index:5;box-shadow:inset 0 -3px 0 var(--yellow),inset -2px 0 0 var(--navy)}
+}
+table.plan tr.wk-empty td{color:var(--ink-3);font-style:italic}
+table.data.plan tr.wk-head td{background:var(--white);border-top:2px solid var(--navy);padding-top:16px;padding-bottom:12px;font-weight:700;color:var(--navy);vertical-align:baseline}
+table.data.plan tr.wk-head td.wk-extra{text-align:right;font-weight:500}
+table.data.plan tr.wk-head td.wk-edt{background:var(--white);border-top:2px solid var(--navy);padding:16px 0 12px 12px;font-weight:700;font-size:15px;color:var(--navy);font-variant-numeric:tabular-nums;vertical-align:baseline}
+table.data.plan tbody.wk:first-of-type tr.wk-head td.wk-edt{border-top:0}
+table.plan td.c-n{color:var(--ink)}
+table.data.plan tr.buf-row td{background:repeating-linear-gradient(135deg,var(--yellow) 0 1.5px,var(--white) 1.5px 8px);border-top:1px dashed var(--line-strong);padding-block:10px}
+table.plan tr.buf-row .buf-k{display:block;font-weight:600;color:var(--ink)}
+table.plan tr.buf-row .buf-note{display:block;font-size:13px;font-weight:400;color:var(--ink-2);margin-top:2px}
+table.plan tr.buf-row td.buf-rule{font-size:13px;color:var(--ink-2)}
+.buf-ico{display:inline-block;width:12px;height:12px;border-radius:2px;border:1.5px solid var(--ink-2);background:repeating-linear-gradient(135deg,var(--ink-2) 0 1.5px,transparent 1.5px 4px);margin-top:4px}
+
+.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,48px)}
+.steps{list-style:none;display:grid;margin-top:18px}
+.steps li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;padding-block:14px;border-top:2px solid var(--line)}
+.steps li:first-child{border-top:0;padding-top:0}
+.steps .k{font-size:13px;font-weight:600;color:var(--navy)}
+.steps p{font-size:15px;line-height:1.55}
+.steps .hack{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--ink-2);margin-top:6px}
+.swatch{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--c);flex:none}
+.sheet{margin-top:18px;background:var(--card);border:2px solid var(--line);border-radius:var(--r-sig);padding:22px 22px 18px}
+.sheet-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:12px;border-bottom:2px solid var(--navy)}
+.sheet-head b{font-size:16px;color:var(--navy)}
+.sheet-head span{font-size:12.5px;color:var(--ink-3)}
+.sheet ol{list-style:none;counter-reset:s;display:grid;gap:10px;margin-top:14px}
+.sheet li{counter-increment:s;display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;font-size:14.5px;line-height:1.5}
+.sheet li::before{content:counter(s);font-size:12px;font-weight:600;color:var(--on-panel);background:var(--panel);width:22px;height:22px;border-radius:2px;display:grid;place-items:center;margin-top:1px}
+.sheet li b{color:var(--navy)}
+.sheet-foot{margin-top:14px;padding-top:12px;border-top:2px solid var(--line);font-size:13px;color:var(--ink-2)}
+
+/* ---------- Parte 2 ---------- */
+.scale-note{margin-top:22px;font-size:14px;color:var(--ink-2);max-width:78ch}
+.tag{font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
+.tag.soon{background:var(--burgundy-tint);color:var(--burgundy-ink)}
+table.data.scale-table{min-width:760px}
+table.scale-table th.w-lvl{width:170px}
+table.scale-table th.lvl{white-space:nowrap;font-weight:600;color:var(--navy);text-transform:none;letter-spacing:0;font-size:14px;background:transparent;border-bottom:2px solid var(--line);padding:14px 16px;vertical-align:top}
+table.scale-table tr:last-child th.lvl{border-bottom:0}
+.lvl-n{display:inline-grid;place-items:center;width:26px;height:26px;margin-right:10px;border-radius:2px;background:var(--panel);color:var(--on-panel);font-size:13px;font-variant-numeric:tabular-nums}
+table.scale-table td b{display:block;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.expo-scroll{margin-top:14px}
+table.data.expo-table{min-width:680px}
+table.expo-table th.w-el{width:130px}
+table.expo-table th.w-ef{width:130px}
+table.expo-table th.w-er{width:170px}
+table.expo-table tbody th{background:transparent;border-bottom:2px solid var(--line);padding:14px 16px;text-transform:none;letter-spacing:0;font-size:14px;vertical-align:top}
+table.expo-table tr:last-child th{border-bottom:0}
+table.expo-table td.num{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500}
+table.data.risk-table{min-width:1180px}
+table.data.risk-table th,table.data.risk-table td{padding-inline:12px}
+table.data.risk-table thead th{letter-spacing:.08em}
+table.risk-table th.c-n,table.risk-table td.c-n{width:48px;font-variant-numeric:tabular-nums}
+table.risk-table td.c-n{color:var(--ink-3);font-weight:600}
+table.risk-table th.w-risk{width:22%}
+table.risk-table th.w-sc{width:120px}
+table.risk-table th.w-exp{width:104px}
+table.risk-table th.w-resp{width:96px}
+table.risk-table th.w-desc{width:24%}
+table.risk-table th.w-own{width:13%}
+table.risk-table td.c-risk b{display:block;color:var(--navy);font-weight:600;font-size:14.5px;line-height:1.4}
+table.risk-table td.c-risk .tag{display:inline-block;margin-top:6px}
+table.risk-table td.c-risk .imp{display:block;margin-top:6px;font-size:13px;color:var(--ink-2)}
+.score{display:inline-flex;align-items:baseline;gap:6px;white-space:nowrap;color:var(--ink-2)}
+.score b{font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums}
+.expo{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;padding:3px 10px;border-radius:999px;background:var(--st);color:var(--on-st);font-weight:500}
+.expo i{display:none}
+.expo b{font-variant-numeric:tabular-nums}
+.expo.hi{--st:var(--st-crit);--on-st:var(--white)}
+.expo.mid{--st:var(--st-warn)}
+.expo.lo{--st:var(--st-good)}
+table.risk-table td.c-strat{font-weight:600;color:var(--navy)}
+table.risk-table .d-k{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+table.risk-table .d-k:first-child{margin-top:0}
+table.risk-table .d-k.trig{color:var(--burgundy-ink)}
+table.risk-table .d-t{display:block}
+table.risk-table td.c-own{color:var(--ink)}
+table.risk-table td.c-own span,table.risk-table td.c-cost span{display:block;font-size:12.5px;color:var(--ink-3)}
+table.risk-table td.c-cost b{display:block;color:var(--ink);font-weight:600}
+
+/* ---------- Parte 3 ---------- */
+.stk-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:clamp(28px,4vw,44px)}
+.stk{display:grid;grid-template-rows:subgrid;grid-row:span 5;gap:0;background:var(--card);border:2px solid var(--line);border-radius:var(--r-panel);overflow:hidden;min-width:0}
+.stk-head{background:var(--panel);color:var(--on-panel);padding:22px 22px 20px}
+.stk-head h3{font-size:19px;font-weight:600;margin-top:12px;color:var(--on-panel)}
+.stk-row{padding:16px 22px;border-top:2px solid var(--line)}
+.stk-row:nth-child(2){border-top:0}
+.stk-row p{font-size:14.5px;line-height:1.55;font-weight:400;color:var(--ink-2);margin-top:4px}
+.stk-row.freq{background:var(--surface-2)}
+.stk-row.freq p{color:var(--ink);font-weight:500}
+
+.sub .stk-grid{margin-top:18px}
+.raci-legend{list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:13.5px;color:var(--ink-2)}
+.raci-legend li{display:inline-flex;align-items:center;gap:8px}
+.raci-legend b{color:var(--ink);font-weight:600}
+.rc{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 5px;border-radius:4px;font-size:12px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.rc.a,.rc.ra{background:var(--burgundy);color:var(--on-burgundy)}
+.rc.r{background:var(--panel);color:var(--on-panel)}
+.rc.c{box-shadow:inset 0 0 0 1.5px var(--navy);color:var(--navy)}
+.rc.i{background:var(--surface-2);color:var(--ink-3)}
+table.data.raci{min-width:1120px;margin-top:0}
+table.raci{margin-top:0}
+.raci-legend + .table-scroll{margin-top:14px}
+table.data.raci th,table.data.raci td{padding-inline:10px}
+table.raci th.c-n,table.raci td.c-n{width:44px;font-variant-numeric:tabular-nums}
+table.raci td.c-n{color:var(--ink-3);font-weight:600}
+table.raci th.w-name{width:210px}
+table.raci th.w-area{width:140px}
+table.data.raci thead th{vertical-align:bottom}
+table.data.raci th.vcol{width:44px;padding:12px 4px;text-align:center}
+.vh{display:inline-block;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;text-transform:none;letter-spacing:0;font-size:12.5px;font-weight:600;color:var(--white)}
+table.data.raci th.grp{text-align:center;color:var(--white);letter-spacing:.1em}
+table.raci .k1{border-left:1px solid var(--line-strong)}
+table.data.raci tbody th.c-name{background:transparent;text-transform:none;letter-spacing:0;font-size:14px;font-weight:600;color:var(--navy);border-bottom:2px solid var(--line);padding:12px 10px;vertical-align:middle}
+table.raci tbody tr:last-child th.c-name{border-bottom:0}
+table.raci td.c-area{color:var(--ink-2);font-size:13.5px;vertical-align:middle}
+table.raci td.c-n{vertical-align:middle}
+table.data.raci td.rc-cell{text-align:center;vertical-align:middle;padding:10px 4px}
+.role-note{display:block;margin-top:4px;font-size:12px;font-weight:400;color:var(--ink-2)}
+.prio-tag{display:block;margin-top:4px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--burgundy-ink)}
+
+/* ---------- Parte 4 ---------- */
+.table-scroll{overflow-x:auto;margin-top:18px;border:2px solid var(--line);border-radius:var(--r-sig);background:var(--card)}
+table.data{border-collapse:collapse;width:100%;min-width:860px;font-size:14px;line-height:1.5}
+table.data th{text-align:left;font-weight:600;color:var(--ink-3);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:14px 16px;border-bottom:2px solid var(--line);background:var(--surface-2)}
+table.data td{padding:14px 16px;border-bottom:2px solid var(--line);vertical-align:top;font-weight:400;color:var(--ink-2)}
+table.data tr:last-child td{border-bottom:0}
+table.data td.blk{font-weight:600;color:var(--navy);white-space:nowrap}
+table.data td.dec{color:var(--ink);font-weight:500}
+.lights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:18px}
+.lamp{background:var(--card);border:2px solid var(--line);border-radius:var(--r-sig);padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.lamp-top{display:flex;align-items:center;gap:10px}
+.st-icon{width:26px;height:26px;border-radius:50%;background:var(--st);color:var(--on-st);display:grid;place-items:center;flex:none}
+.st-icon svg{width:14px;height:14px}
+.lamp h4{font-size:16px;font-weight:600;color:var(--navy)}
+.lamp p{font-size:14.5px;line-height:1.55;font-weight:400;color:var(--ink-2)}
+.lamp .label{margin-top:2px}
+
+.flow{margin:18px 0 0}
+.flow-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.05fr) auto minmax(0,1fr);align-items:stretch;gap:12px}
+.flow-col{display:grid;gap:10px;align-content:start;min-width:0}
+.flow-col.mid{grid-template-rows:auto 1fr}
+.flow-col.mid .flow-hub{align-self:center}
+.flow-grid > .arrow{align-self:center}
+.flow-k{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);text-align:center}
+.flow-box{background:var(--card);border:1px solid var(--line-strong);border-radius:6px;padding:12px 14px;text-align:center;font-size:14px;font-weight:500;color:var(--ink);line-height:1.35}
+.flow-box span{display:block;font-size:12.5px;font-weight:400;color:var(--ink-2);margin-top:2px}
+.flow-hub{background:var(--aqua);border:2px solid var(--navy);border-radius:4px 26px 4px 4px;padding:26px 18px;text-align:center}
+.flow-hub strong{display:block;font-size:20px;color:var(--navy)}
+.flow-hub span{display:block;font-size:13px;color:var(--ink-2);margin-top:4px}
+.arrow{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--ink-3)}
+.arrow span{font-size:12px;font-weight:500;color:var(--ink-2);white-space:nowrap}
+.arrow svg{width:54px;height:16px}
+figcaption{margin-top:16px;font-size:14px;color:var(--ink-2);max-width:70ch}
+
+.cols-list{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.cols-list li{font-size:12.5px;font-weight:500;padding:4px 10px;border-radius:4px;background:var(--surface-2);color:var(--ink-2)}
+.status{display:inline-flex;align-items:center;gap:7px;font-weight:500;color:var(--ink);white-space:nowrap}
+.status i{width:10px;height:10px;border-radius:50%;background:var(--st);flex:none}
+.example-tag{font-size:12.5px;color:var(--ink-3);margin-top:10px}
+table.data.sheet-ex{min-width:760px}
+table.data td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+table.data.events{min-width:1220px;font-size:13.5px;table-layout:fixed}
+table.data.events td,table.data.events th{overflow-wrap:break-word}
+table.data.events th,table.data.events td{padding-inline:12px}
+table.data.events thead th{letter-spacing:.08em}
+table.data.events td{border-bottom:0;border-top:2px solid var(--line)}
+table.events th.c-n,table.events td.c-n{width:36px;font-variant-numeric:tabular-nums}
+table.events td.c-n{color:var(--ink-3);font-weight:600}
+table.events th.w-ev{width:124px}
+table.events th.w-obj{width:160px}
+table.events th.w-met{width:160px}
+table.events th.w-resp{width:124px}
+table.events th.w-env{width:124px}
+table.events th.w-when{width:118px}
+table.events th.w-dur{width:80px}
+table.events th.w-loc{width:140px}
+table.data.events tbody th.c-ev{background:transparent;text-transform:none;letter-spacing:0;font-size:14px;font-weight:600;color:var(--navy);border-bottom:0;border-top:2px solid var(--line);padding:14px 12px;vertical-align:top;text-align:left}
+table.events td.c-resp{color:var(--ink)}
+table.events td.c-resp span{display:block;font-size:12px;color:var(--ink-3);margin-top:2px}
+table.events td.c-when{color:var(--navy);font-weight:500}
+table.events td.c-dur{color:var(--ink)}
+
+/* Cabeçalhos fixos: quando a tabela cabe na largura, o cabeçalho acompanha a rolagem da página logo abaixo da navegação;
+   quando não cabe (telas estreitas), a tabela vira uma caixa com rolagem própria e o cabeçalho fica fixo dentro dela */
+table.data thead th{position:sticky;top:calc(var(--stick,0px) + var(--row-off,0px));z-index:3;background:var(--navy);color:var(--white);box-shadow:inset 0 -3px 0 var(--yellow)}
+.table-scroll.fits{overflow:clip;--stick:calc(env(safe-area-inset-top,0px) + var(--toc-h,0px))}
+.table-scroll:not(.fits){overflow:auto;max-height:min(78vh,860px);--stick:0px}
+
+/* ---------- Parte 5 ---------- */
+.msg-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(28px,4vw,44px);align-items:start}
+.phone{background:var(--surface-2);border:2px solid var(--line);border-radius:28px;padding:14px;max-width:440px;width:100%}
+.phone-bar{display:flex;align-items:center;gap:10px;padding:6px 8px 14px}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--panel);color:var(--on-panel);display:grid;place-items:center;font-size:12px;font-weight:600;flex:none}
+.phone-bar b{display:block;font-size:14px;color:var(--ink);line-height:1.3}
+.phone-bar span{font-size:12px;color:var(--ink-3)}
+.bubble{background:var(--white);border-radius:18px 18px 4px 18px;padding:16px 18px 10px;margin-left:18px}
+.bubble p{font-size:15px;line-height:1.55;font-weight:400;color:var(--ink)}
+.bubble p + p{margin-top:10px}
+.bubble mark{background:var(--aqua);color:var(--on-aqua);border-radius:3px;padding:0 3px;font-weight:500}
+.bubble-meta{text-align:right;font-size:11.5px;color:var(--ink-3);margin-top:8px}
+.copy-row{display:flex;align-items:center;gap:12px;margin-top:14px;padding-inline:4px;flex-wrap:wrap}
+.btn{font:inherit;font-size:14px;font-weight:500;border:0;border-radius:999px;padding:10px 18px;background:var(--panel);color:var(--on-panel);cursor:pointer}
+.btn:hover{background:var(--burgundy);color:var(--on-burgundy)}
+.copy-hint{font-size:12.5px;color:var(--ink-3)}
+.why{list-style:none;display:grid;gap:14px;margin-top:16px}
+.why li{font-size:15px;line-height:1.55;padding-left:22px;position:relative}
+.why li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;background:var(--burgundy);border-radius:1px}
+.why b{color:var(--navy)}
+.ladder{list-style:none;display:grid;gap:0;margin-top:16px}
+.ladder li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding-block:12px;border-top:2px solid var(--line);font-size:15px;line-height:1.55}
+.ladder li:first-child{border-top:0;padding-top:0}
+.ladder .k{font-size:13px;font-weight:600;color:var(--burgundy-ink)}
+
+/* ---------- Parte 6 ---------- */
+.fronts{margin:clamp(28px,4vw,44px) 0 0}
+.fronts-row{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.1fr) auto minmax(0,1fr);align-items:stretch;gap:12px}
+.front{border:1.5px solid var(--c);border-radius:4px 22px 4px 4px;padding:18px;background:var(--card);display:flex;flex-direction:column;gap:6px;min-width:0}
+.front.main{border-width:2px;background:var(--navy)}
+.front.main h4,.front.main p.d,.front.main .front-prio{color:var(--white)}
+.front.main .swatch{background:var(--white)}
+.front-prio{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.front h4{font-size:18px;font-weight:600;color:var(--navy);line-height:1.3}
+.front p.d{font-size:14px;line-height:1.5;color:var(--ink-2);font-weight:400}
+.fronts .arrow{align-self:center}
+.gov{margin-top:12px;border:0;background:var(--yellow);border-radius:4px;padding:14px 18px;text-align:center;font-size:14.5px;font-weight:500;color:var(--ink)}
+.gov b{color:var(--navy)}
+
+.prio-list{list-style:none;display:grid;gap:0;margin-top:16px}
+.prio-list li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;padding-block:16px;border-top:2px solid var(--line)}
+.prio-list li:first-child{border-top:0;padding-top:0}
+.prio-list .rank{width:34px;height:34px;display:grid;place-items:center;border-radius:2px;background:var(--c);color:var(--on-c);font-weight:600;font-size:15px}
+.prio-list b{display:block;color:var(--navy);font-size:16px}
+.prio-list p{font-size:15px;line-height:1.55;margin-top:4px}
+.tiebreak{margin-top:18px;background:var(--panel);color:var(--on-panel);border-radius:var(--r-sig);padding:20px 22px}
+.tiebreak p{font-size:15px;line-height:1.6;color:var(--on-panel-2);margin-top:10px}
+
+.routine-scroll{overflow-x:auto;margin-top:18px}
+table.routine{border-collapse:separate;border-spacing:6px;width:100%;min-width:780px}
+table.routine th{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:4px 10px}
+table.routine tbody th{vertical-align:top;padding-top:14px;width:70px}
+table.routine td{vertical-align:top;background:var(--white);box-shadow:inset 4px 0 0 var(--c),inset 0 0 0 2px var(--aqua);border-radius:4px;padding:12px 12px 14px;font-size:13.5px;line-height:1.45;font-weight:400;color:var(--ink);width:19%}
+.f-tag{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:6px}
+.f-acel{--c:var(--front-acel);--on-c:var(--white)}
+.f-hack{--c:var(--front-hack);--on-c:var(--navy)}
+.f-inv{--c:var(--front-inv);--on-c:var(--white)}
+.f-gov{--c:var(--front-gov);--on-c:var(--navy)}
+.mix{margin-top:18px;max-width:640px}
+.mix-title{font-size:14px;font-weight:500;color:var(--ink)}
+.mix-bar{display:flex;gap:2px;height:14px;margin-top:10px}
+.mix-bar span{background:var(--c);min-width:0}
+.mix-bar span:first-child{border-radius:4px 0 0 4px}
+.mix-bar span:last-child{border-radius:0 4px 4px 0}
+.mix-legend{list-style:none;display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font-size:13px;color:var(--ink-2)}
+.mix-legend li{display:inline-flex;align-items:center;gap:7px}
+.mix-legend b{color:var(--ink);font-variant-numeric:tabular-nums}
+.routine-note{margin-top:16px;font-size:14.5px;color:var(--ink-2);max-width:70ch}
+.bullets{list-style:none;display:grid;gap:14px;margin-top:16px}
+.bullets li{font-size:15px;line-height:1.55;padding-top:14px;border-top:2px solid var(--line)}
+.bullets li:first-child{padding-top:0;border-top:0}
+.bullets b{color:var(--navy)}
+
+/* ---------- Rodapé ---------- */
+.foot{background:var(--panel);color:var(--on-panel);padding-block:clamp(48px,7vw,80px)}
+.foot-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;align-items:center}
+.foot-big{font-size:clamp(30px,4.5vw,48px);font-weight:200;line-height:1.15}
+.foot-big b{font-weight:700}
+.foot p.small{font-size:15px;line-height:1.6;color:var(--on-panel-2);border-left:1px solid var(--on-panel-2);padding-left:20px}
+.foot p.small b{color:var(--on-panel)}
+
+/* ---------- Colunas congeladas nas tabelas com rolagem lateral ----------
+   O script marca a tabela com .frz quando ela rola para o lado e com .frz2 quando as duas
+   primeiras colunas ocupam até 70% da largura visível; em telas estreitas, congela só a primeira. */
+table.data:not(.plan){border-collapse:separate;border-spacing:0}
+table.data.frz thead tr:first-child > :first-child,
+table.data.frz tbody tr:not(.wk-head) > :first-child,
+table.data.frz tr.wk-head > td.wk-edt{position:sticky;left:0;z-index:1;background:var(--card)}
+table.data.frz2 thead tr:first-child > :nth-child(2),
+table.data.frz2 tbody tr:not(.wk-head) > :nth-child(2){position:sticky;left:var(--c1-w,0px);z-index:1;background:var(--card)}
+table.data.frz thead tr:first-child > :first-child,
+table.data.frz2 thead tr:first-child > :nth-child(2){z-index:5;background:var(--navy)}
+table.data.frz:not(.frz2) tbody tr:not(.wk-head) > :first-child,
+table.data.frz:not(.frz2) tr.wk-head > td.wk-edt,
+table.data.frz2 tbody tr:not(.wk-head) > :nth-child(2){box-shadow:inset -2px 0 0 var(--aqua)}
+table.data.frz:not(.frz2) thead tr:first-child > :first-child,
+table.data.frz2 thead tr:first-child > :nth-child(2){box-shadow:inset 0 -3px 0 var(--yellow),inset -2px 0 0 var(--navy)}
+table.data.frz tr.wk-head .wk-line{position:sticky;left:calc(var(--c1-w,0px) + 12px);width:max-content;max-width:calc(var(--box-w,100%) - var(--c1-w,0px) - 24px)}
+table.data.events.frz tr.wk-head .wk-line{left:12px;max-width:calc(var(--box-w,100%) - 24px)}
+table.routine.frz tr > :first-child{position:sticky;left:6px;z-index:1;background:var(--white);box-shadow:0 0 0 6px var(--white)}
+table.routine.frz2 tr > :nth-child(2){position:sticky;left:calc(var(--c1-w,0px) + 12px);z-index:1}
+table.routine.frz2 thead tr > :nth-child(2){background:var(--white);box-shadow:0 0 0 6px var(--white)}
+table.routine.frz2 tbody tr > td:nth-child(2){box-shadow:inset 4px 0 0 var(--c),inset 0 0 0 2px var(--aqua),0 0 0 6px var(--white)}
+
+/* ---------- Gantt do plano ---------- */
+.btn-gantt{margin-left:auto;margin-right:calc((100% - min(1360px, 100vw - 48px)) / 2);display:inline-flex;align-items:center;gap:8px;padding:9px 16px}
+.btn-gantt svg{width:18px;height:18px;fill:currentColor;flex:none}
+.btn-gantt:focus-visible,.gantt-close:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+html:has(dialog.gantt-dlg[open]){overflow:hidden}
+dialog.gantt-dlg{width:min(1320px,calc(100vw - 32px));max-width:none;height:min(920px,calc(100vh - 32px));max-height:none;padding:0;border:0;border-radius:var(--r-sig);background:var(--white);color:var(--ink);overflow:hidden}
+dialog.gantt-dlg[open]{display:flex;flex-direction:column}
+dialog.gantt-dlg::backdrop{background:var(--navy)}
+.gantt-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:18px 20px 12px}
+.gantt-k{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--burgundy)}
+.gantt-top h3{font-size:20px;font-weight:700;color:var(--navy);line-height:1.25;margin-top:2px}
+.gantt-note{font-size:13px;color:var(--ink-2);margin-top:2px}
+.gantt-note:empty{display:none}
+.gantt-close{flex:none;width:40px;height:40px;display:grid;place-items:center;border:2px solid var(--aqua);border-radius:999px;background:var(--white);color:var(--navy);cursor:pointer}
+.gantt-close:hover{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.gantt-close svg{width:14px;height:14px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round}
+.gantt-legend{list-style:none;margin:0;display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 20px 12px;border-top:2px solid var(--aqua);font-size:12.5px;color:var(--ink-2)}
+.gantt-legend li{display:inline-flex;align-items:center;gap:7px}
+.gantt-legend .lg{position:static;display:inline-block;width:24px;height:12px;margin:0}
+.lg.lg-sum{height:8px;background:var(--navy);border-radius:2px}
+.lg.lg-prog{height:5px;border-radius:999px;background:linear-gradient(90deg,var(--navy) 0 60%,var(--aqua) 60% 100%)}
+.lg.lg-we{width:12px;height:14px;background:var(--aqua)}
+.lg-ms{display:inline-block;width:11px;height:11px;margin:0 4px;transform:rotate(45deg);background:var(--burgundy)}
+.gantt-scroll{flex:1;min-height:0;overflow:auto;border-top:2px solid var(--aqua)}
+.gantt{--lw:340px;width:calc(var(--lw) + var(--tw,800px));font-size:13px;line-height:1.35}
+.g-head{position:sticky;top:0;z-index:3;display:flex;background:var(--navy);color:var(--white);border-bottom:3px solid var(--yellow)}
+.g-lab{flex:0 0 var(--lw);width:var(--lw);position:sticky;left:0;z-index:2;display:flex;align-items:center;gap:10px;padding:8px 14px;background:var(--white);box-shadow:inset -2px 0 0 var(--aqua)}
+.g-head .g-lab{z-index:4;background:var(--navy);box-shadow:none;align-items:flex-end;padding-bottom:9px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.g-hcols{flex:0 0 var(--tw);width:var(--tw)}
+.g-hgroups,.g-hdays{display:flex}
+.g-hgrp{flex:none;padding:9px 0 3px 8px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.g-hday{flex:none;padding:1px 0 8px;text-align:center;font-size:11px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.g-hday small{display:block;font-size:10px;font-weight:400;color:var(--aqua)}
+.g-hwe{flex:none;align-self:stretch;background:var(--aqua)}
+.g-hpad{flex:none}
+.g-body{position:relative}
+.g-grid{position:absolute;top:0;bottom:0;left:var(--lw);width:var(--tw);pointer-events:none}
+.g-grid span{position:absolute;top:0;bottom:0}
+.g-gday{box-shadow:inset -1px 0 0 var(--aqua)}
+.g-gwe{background:var(--aqua)}
+.g-row{position:relative;display:flex;min-height:44px;border-bottom:1px solid var(--aqua)}
+.g-track{position:relative;flex:0 0 var(--tw);width:var(--tw)}
+.g-code{flex:none;min-width:40px;font-size:12px;font-weight:600;color:var(--navy);font-variant-numeric:tabular-nums}
+.g-name{min-width:0;color:var(--navy)}
+.g-name b{font-weight:700}
+.g-wk{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy)}
+.g-pct{flex:none;margin-left:auto;font-size:12px;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+.g-row.g-stage{border-top:2px solid var(--navy)}
+.g-row.g-buf-row{min-height:32px}
+.g-row.g-buf-row .g-name{font-size:12.5px}
+.g-bar,.g-sum,.g-buf,.g-ms,.g-prog{position:absolute}
+.g-bar{top:calc(50% - 10px);height:14px;border-radius:3px}
+.g-bar.p1{background:var(--burgundy)}
+.g-bar.p2{background:var(--orange)}
+.g-bar.p3{background:var(--white);box-shadow:inset 0 0 0 2px var(--navy)}
+.g-prog{top:calc(50% + 7px);height:4px;border-radius:999px;background:var(--aqua);overflow:hidden}
+.g-prog i{display:block;height:100%;background:var(--navy);border-radius:999px}
+.g-prog.done i{background:var(--green)}
+.g-sum{top:calc(50% - 5px);height:9px;background:var(--navy);border-radius:2px 2px 0 0}
+.g-sum.root{top:calc(50% - 6px);height:11px}
+.g-sum::before,.g-sum::after{content:"";position:absolute;top:100%;border-top:6px solid var(--navy)}
+.g-sum::before{left:0;border-right:7px solid transparent}
+.g-sum::after{right:0;border-left:7px solid transparent}
+.g-buf{top:calc(50% - 7px);height:14px;border-radius:3px;background:repeating-linear-gradient(135deg,var(--yellow) 0 1.5px,var(--white) 1.5px 8px);box-shadow:inset 0 0 0 1px var(--navy)}
+.g-ms{top:calc(50% - 8px);width:16px;height:16px;transform:rotate(45deg);background:var(--burgundy);border:2px solid var(--white)}
+.g-ms.final{background:var(--navy)}
+@media (max-width:640px){
+  dialog.gantt-dlg{width:100vw;height:100vh;height:100dvh;border-radius:0}
+  .gantt{--lw:196px}
+  .g-lab{padding:8px 10px;gap:6px}
+  .g-code{min-width:34px}
+  .g-name{font-size:12px}
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 900px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-text{order:1}
+  .mosaic{order:2}
+  .prem-grid,.duo,.msg-grid,.foot-inner{grid-template-columns:minmax(0,1fr)}
+  .stk-grid{grid-template-columns:minmax(0,1fr)}
+  .stk{grid-template-rows:none;grid-row:auto;display:block}
+  .lights,.start-grid,.prio-defs{grid-template-columns:minmax(0,1fr)}
+  .flow-grid,.fronts-row{grid-template-columns:minmax(0,1fr)}
+  .arrow{flex-direction:row;justify-content:center}
+  .arrow svg{transform:rotate(90deg);width:40px}
+}
+@media (max-width: 760px){
+  .risks{grid-template-columns:minmax(0,1fr)}
+  .blob{right:-40px}
+}
+@media (max-width: 480px){
+  .mosaic{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-areas:"b b a" "b b e" "f f e" "c d g";grid-auto-rows:minmax(88px,auto);border-radius:0 24px 24px 0}
+  .tile{padding:10px}
+  .tile span{font-size:12px}
+  .tb{padding:14px}
+  .tb span{font-size:13.5px}
+  .tg{border-radius:0 0 24px 0}
+  .ladder li,.steps li{grid-template-columns:minmax(0,1fr);gap:4px}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <div class="band">
+        <span class="band-label">Resolução do desafio técnico</span>
+        <span class="band-name">Maria Alice</span>
+      </div>
+      <h1>Desafio técnico</h1>
+      <p class="subtitle"><span>Pessoa Analista Pleno de Projetos de Aceleração e Comunidades</span></p>
+      <p class="context">Processo seletivo do Impact Hub · Hub de Inovação Climática da Companhia de Impacto · projeto Restauração da Terra e Conservação de Florestas · vaga remota, vinculada a Cuiabá</p>
+      <p class="thesis">Uma proposta para organizar e conduzir as primeiras semanas de um programa de aceleração de negócios de impacto: o que eu faria, em que ordem e por quê.</p>
+      <div class="threads">
+        <p class="threads-k">Fio condutor da proposta</p>
+        <ul>
+          <li>Qualidade dos dados</li>
+          <li>Experiência dos participantes</li>
+          <li>Evidências para o financiador</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mosaic" role="group" aria-label="O ciclo em números">
+      <div class="tile tb"><strong>30</strong><span>dias até o início do ciclo</span></div>
+      <div class="tile te"><strong>20</strong><span>negócios de impacto acelerados</span><small>Amazônia e Cerrado</small></div>
+      <div class="tile ta"><strong>10</strong><span>semanas de ciclo</span></div>
+      <div class="tile td"><strong>10</strong><span>mentores e especialistas</span></div>
+      <div class="tile tc" aria-hidden="true"></div>
+      <div class="tile tf" aria-hidden="true"></div>
+      <div class="tile tg" aria-hidden="true"></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Seções da resolução">
+  <div class="wrap">
+    <ol>
+      <li><a href="#premissas">Premissas</a></li>
+      <li><a href="#plano"><span class="n">1</span>Plano de ação</a></li>
+      <li><a href="#riscos"><span class="n">2</span>Riscos</a></li>
+      <li><a href="#stakeholders"><span class="n">3</span>Stakeholders</a></li>
+      <li><a href="#acompanhamento"><span class="n">4</span>Acompanhamento</a></li>
+      <li><a href="#comunicacao"><span class="n">5</span>Comunicação</a></li>
+      <li><a href="#visao"><span class="n">6</span>Visão do todo</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ PREMISSAS ============ -->
+<section class="section alt premissas" id="premissas" aria-labelledby="h-premissas">
+  <div class="blob" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="prem-head">
+      <p class="prem-eyebrow">Antes das respostas…</p>
+      <h2 id="h-premissas"><span class="light">Premissas e</span> leitura do cenário</h2>
+    </div>
+    <p class="lead">O ciclo começa em 30 dias. A prioridade é resolver o que trava outras entregas e chegar ao primeiro encontro com dados, evidências e acompanhamento funcionando.</p>
+
+    <div class="prem-grid">
+      <div>
+        <p class="label">Como li o desafio</p>
+        <ul class="readlist">
+          <li><b>Primeiros 30 dias</b> = o período entre assumir a operação e o início do ciclo (D-30 a D0). Incluo os marcos das semanas 1 a 4, porque o hackathon acontece na semana 4 e depende de decisões tomadas agora.</li>
+          <li><b>Dias úteis:</b> o trabalho acontece de segunda a sexta, e considero a abertura (D0) numa segunda-feira. Assim, os 30 dias corridos têm 20 dias úteis de preparação, de D-28 a D-3 (D-30 e D-29 caem num fim de semana). Feriados entram no cronograma quando as datas reais forem definidas.</li>
+          <li><b>Fio condutor:</b> qualidade dos dados, experiência dos participantes e evidências para a prestação de contas ao financiador, as três responsabilidades do cargo.</li>
+          <li><b>Contexto:</b> o ciclo é uma das frentes do projeto Restauração da Terra e Conservação de Florestas, com negócios de restauração, conservação e bioeconomia na Amazônia e no Cerrado. Considero que parte deles opera fora de Cuiabá, o que pesa em conectividade e deslocamento.</li>
+          <li><b>Alçadas:</b> conduzo a execução, e a coordenação aprova todas as entregas e decisões, como orçamento, contratações e substituição de participantes.</li>
+          <li><b>Trabalho remoto:</b> conduzo reuniões, mentorias e encontros on-line. Nos eventos presenciais, como o hackathon e o Demo Day, coordeno a distância com o fornecedor e a equipe no local.</li>
+          <li><b>Hackathon:</b> trato o hackathon regional da semana 4 como um evento aberto ao ecossistema, que também gera pipeline para o próximo ciclo (ver Parte 6).</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <p class="kicker"><span>O que o cenário mostra</span></p>
+        <ul class="conn">
+          <li><b>Os 6 negócios sem diagnóstico podem ser os mesmos com baixa resposta.</b> Cruzar as duas listas é a primeira ação: se coincidirem, há um sinal precoce de evasão.</li>
+          <li><b>O diagnóstico é a linha de base.</b> Sem ele, as mentorias ficam genéricas e o relatório final não demonstra evolução.</li>
+          <li><b>4 de 10 mentores sem confirmação representam 40% da capacidade de mentoria.</b> Para 20 negócios, isso significa sobrecarga e atraso já nas primeiras semanas.</li>
+          <li><b>O hackathon acontece em cerca de 7 semanas e ainda não tem fornecedor.</b> Contratações com recurso do financiador costumam exigir cotações e aprovações, por isso a busca começa na primeira semana.</li>
+          <li><b>Evidência não se produz no fim.</b> Listas de presença, fotos com termo de uso de imagem (LGPD), atas e formulários precisam de modelo e responsável antes do primeiro encontro.</li>
+          <li><b>Informação dispersa trava todo o resto.</b> Sem uma base única, não há report semanal confiável nem prestação de contas consistente.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="start">
+      <div class="sub-head">
+        <p class="label">Ponto de partida em D-30</p>
+        <div class="legend-inline" aria-hidden="true">
+          <span><i class="u"></i>feito</span>
+          <span><i class="u todo"></i>pendente</span>
+        </div>
+      </div>
+      <div class="start-grid">
+        <div class="meter">
+          <p class="meter-k">Diagnósticos iniciais</p>
+          <p class="meter-v">14 <small>de 20 feitos</small></p>
+          <div class="units" role="img" aria-label="14 de 20 diagnósticos feitos, 6 pendentes">
+            <i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u todo"></i><i class="u todo"></i><i class="u todo"></i><i class="u todo"></i><i class="u todo"></i><i class="u todo"></i>
+          </div>
+          <p class="meter-note"><b>Meta:</b> 20 de 20 até D-17</p>
+        </div>
+        <div class="meter">
+          <p class="meter-k">Mentores com disponibilidade confirmada</p>
+          <p class="meter-v">6 <small>de 10</small></p>
+          <div class="units" role="img" aria-label="6 de 10 mentores confirmados, 4 pendentes">
+            <i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u"></i><i class="u todo"></i><i class="u todo"></i><i class="u todo"></i><i class="u todo"></i>
+          </div>
+          <p class="meter-note"><b>Meta:</b> 10 confirmados, entre atuais e novos, até D-18</p>
+        </div>
+        <div class="meter">
+          <p class="meter-k">Fornecedor de estrutura do hackathon</p>
+          <p class="meter-v">0 <small>de 1 definido</small></p>
+          <div class="units" role="img" aria-label="Fornecedor ainda não definido">
+            <i class="u todo"></i>
+          </div>
+          <p class="meter-note"><b>Meta:</b> contrato assinado até D-17</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTE 1 ============ -->
+<section class="section" id="plano" aria-labelledby="h-plano">
+  <div class="wrap">
+    <p class="part"><svg class="part-mark" viewBox="0 0 100 96" aria-hidden="true"><path d="M55 4H83A13 13 0 0 1 96 17V45A13 13 0 0 1 83 58H57A9 9 0 0 0 48 67V80A12 12 0 0 1 36 92H16A12 12 0 0 1 4 80V60A12 12 0 0 1 16 48H33A9 9 0 0 0 42 39V17A13 13 0 0 1 55 4Z"/></svg><span class="part-label">Parte 1</span></p>
+    <h2 id="h-plano">Plano de ação <span class="light">para os primeiros 30 dias</span></h2>
+    <p class="lead">Nas duas primeiras semanas, resolvo o que trava o resto: diagnósticos, mentores, fornecedor e base de dados. Nas duas seguintes, monto a operação e preparo o lançamento.</p>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">1.1</span><h3>Critério de priorização</h3></div>
+      <div class="prio-defs">
+        <div class="prio-def"><span class="pill p1">P1</span> <span class="name">Crítico</span><p>Trava outras entregas ou tem prazo longo. Começa no primeiro dia.</p></div>
+        <div class="prio-def"><span class="pill p2">P2</span> <span class="name">Necessário para o lançamento</span><p>Depende de atividades P1 para ser feito.</p></div>
+        <div class="prio-def"><span class="pill p3">P3</span> <span class="name">Melhoria</span><p>Aumenta a qualidade, mas não impede o início do ciclo.</p></div>
+      </div>
+      <p class="order-note">A ordem segue a dependência: primeiro o que demora ou bloqueia, depois o que depende disso e, por fim, a prontidão. Dados e evidências correm em paralelo desde o primeiro dia.</p>
+    </div>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">1.2</span><h3>Plano semana a semana</h3></div>
+      <p class="sub-intro">Os marcos (losangos) são as datas em que as pendências críticas precisam estar resolvidas. Na tabela, cada etapa é uma semana de trabalho, de segunda a sexta, com duração, início e término nas mesmas colunas das atividades. As durações estão em dias úteis: fins de semana não entram na conta, e D0, o dia da abertura do ciclo, é uma segunda-feira. Cada etapa começa com uma reunião de alinhamento com a coordenação e termina com uma reunião de aprovação das entregas; entre as duas, eu sou a responsável pelas atividades. A coluna EDT segue a estrutura analítica do trabalho: o 1 é o projeto, com a duração total e as datas de início e fim; o segundo número é a etapa e o terceiro, a atividade. A coluna Predecessora indica, pelo código EDT, o que precisa terminar antes de cada atividade começar. Na coluna Avanço, você registra o percentual de cada atividade; as etapas e o projeto somam sozinhos, pesados pela duração. Os valores ficam salvos só no navegador de quem preenche. O buffer fica no fim de cada etapa, na linha hachurada, sempre numa sexta-feira, e protege o marco seguinte; na semana 4, ele ocupa D-3, a última sexta antes da abertura. Todas as atividades cabem nos 20 dias úteis, e a abertura em D0 é o marco final.</p>
+
+      <div class="road-scroll">
+        <div class="road" role="img" aria-label="Linha do tempo de D-28 a D0 em quatro semanas de segunda a sexta, com marcos em D-24, D-18, D-17 e D0">
+          <div class="phases">
+            <div class="phase" style="flex:5 1 0"><span class="ph-week">Semana 1</span><span class="ph-dates">D-28 a D-24</span><span class="ph-name">Arrumar a casa e atacar o que demora</span></div>
+            <div class="phase" style="flex:5 1 0"><span class="ph-week">Semana 2</span><span class="ph-dates">D-21 a D-17</span><span class="ph-name">Fechar as pendências críticas</span></div>
+            <div class="phase" style="flex:5 1 0"><span class="ph-week">Semana 3</span><span class="ph-dates">D-14 a D-10</span><span class="ph-name">Montar a operação</span></div>
+            <div class="phase" style="flex:6 1 0"><span class="ph-week">Semana 4</span><span class="ph-dates">D-7 a D0</span><span class="ph-name">Prontidão e lançamento</span></div>
+          </div>
+          <div class="axis">
+            <div class="axis-line"></div>
+            <div class="axis-tick" style="left:0"></div>
+            <div class="axis-tick" style="left:calc((100% - 18px) * 0.2381 + 3px)"></div>
+            <div class="axis-tick" style="left:calc((100% - 18px) * 0.4762 + 9px)"></div>
+            <div class="axis-tick" style="left:calc((100% - 18px) * 0.7143 + 15px)"></div>
+            <div class="axis-tick" style="right:0"></div>
+            <div class="gate" style="left:calc((100% - 18px) * 0.2143)">
+              <span class="dia"></span><span class="lead-line" style="height:20px"></span>
+              <p class="g-label to-left" style="top:40px;width:140px"><b>D-24 · resposta</b>dos 4 mentores</p>
+            </div>
+            <div class="gate" style="left:calc((100% - 18px) * 0.4048 + 6px)">
+              <span class="dia"></span><span class="lead-line" style="height:62px"></span>
+              <p class="g-label to-left" style="top:82px"><b>D-18 · mentores</b>10 confirmados, entre atuais e novos</p>
+            </div>
+            <div class="gate" style="left:calc((100% - 18px) * 0.4524 + 6px)">
+              <span class="dia"></span><span class="lead-line" style="height:62px"></span>
+              <p class="g-label to-right" style="top:82px;width:290px"><b>D-17 · pendências críticas fechadas</b>20 de 20 diagnósticos, fornecedor contratado e kit de evidências</p>
+            </div>
+            <div class="gate final" style="left:calc((100% - 18px) * 0.9762 + 18px)">
+              <span class="dia"></span><span class="lead-line" style="height:20px"></span>
+              <p class="g-label to-left" style="top:40px;width:270px"><b>D0 · abertura do ciclo</b>com evidências completas e 1º report</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <div class="seg" role="group" aria-label="Filtrar atividades por prioridade">
+          <button type="button" id="f-all" data-filter="all" aria-pressed="true">Todas</button>
+          <button type="button" id="f-p1" data-filter="P1" aria-pressed="false">P1</button>
+          <button type="button" id="f-p2" data-filter="P2" aria-pressed="false">P2</button>
+          <button type="button" id="f-p3" data-filter="P3" aria-pressed="false">P3</button>
+        </div>
+        <p class="filter-count" id="act-count" aria-live="polite">31 atividades</p>
+        <button type="button" class="btn btn-gantt" id="open-gantt" aria-haspopup="dialog" aria-controls="gantt-dlg"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="3" width="9" height="3.5" rx="1"/><rect x="6" y="8.25" width="11" height="3.5" rx="1"/><rect x="4" y="13.5" width="7" height="3.5" rx="1"/></svg>Ver Gantt</button>
+      </div>
+
+      <div class="table-scroll bleed">
+        <table class="data plan">
+          <caption class="sr-only">Plano de ação dos primeiros 30 dias, por semana</caption>
+          <thead>
+            <tr><th scope="col" class="c-n">EDT</th><th scope="col" class="w-act">Atividade</th><th scope="col" class="w-p">Prior.</th><th scope="col" class="w-q">Recursos</th><th scope="col" class="w-dur">Duração<span class="th-sub">dias úteis</span></th><th scope="col" class="w-ini">Início</th><th scope="col" class="w-fim">Término</th><th scope="col" class="w-pred">Predecessora</th><th scope="col" class="w-e">Entrega</th><th scope="col" class="w-risk-p">Risco</th><th scope="col" class="w-prog">Avanço</th></tr>
+          </thead>
+          <tbody class="root">
+            <tr class="root-row"><td class="c-n">1</td><td class="c-act"><b>Preparação do ciclo de aceleração</b><span>Projeto Restauração da Terra e Conservação de Florestas · 20 dias úteis de preparação, de D-28 a D-3, e abertura do ciclo em D0</span></td><td></td><td></td><td class="c-dur">20 dias</td><td class="c-d">D-28</td><td class="c-d">D0</td><td></td><td></td><td></td><td class="c-prog sum" data-sum="1"><span class="prog-val">0%</span><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+          </tbody>
+          <tbody class="wk">
+            <tr class="wk-head"><td class="wk-edt">1.1</td><th scope="rowgroup" class="wk-title"><div class="wk-line"><span class="wk-k">Semana 1</span><span class="wk-name">Arrumar a casa e atacar o que demora</span></div></th><td></td><td></td><td class="c-dur">5 dias</td><td class="c-d">D-28</td><td class="c-d">D-24</td><td colspan="3" class="wk-extra"><span class="wk-gate">Marco em D-24: resposta dos 4 mentores</span></td><td class="c-prog sum" data-sum="1.1"><span class="prog-val">0%</span><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.1.1</td><td class="c-act">Alinhar escopo, alçadas, orçamento e exigências do financiador</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Coordenação</td><td class="c-dur">1 dia</td><td class="c-d">D-28</td><td class="c-d">D-28</td><td class="c-pred"><span class="none" aria-label="nenhuma">—</span></td><td>Alçadas definidas e checklist de evidências</td><td class="c-riskp">Demora no acesso ao plano de trabalho e ao contrato</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-1-1" data-code="1.1.1" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.1.1, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P3"><td class="c-n">1.1.2</td><td class="c-act">Revisar projetos anteriores e estudar as lições aprendidas</td><td><span class="pill p3">P3</span></td><td class="c-res">Analista</td><td class="c-dur">3 dias</td><td class="c-d">D-28</td><td class="c-d">D-26</td><td class="c-pred"><span class="none" aria-label="nenhuma">—</span></td><td>Registro de lições aprendidas, com pontos de atenção</td><td class="c-riskp">Pouca documentação dos ciclos anteriores</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-1-2" data-code="1.1.2" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.1.2, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.1.3</td><td class="c-act">Cruzar os diagnósticos pendentes com a lista de baixa resposta e ligar para os 6 negócios</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista</td><td class="c-dur">3 dias</td><td class="c-d">D-28</td><td class="c-d">D-26</td><td class="c-pred"><span class="none" aria-label="nenhuma">—</span></td><td>Diagnósticos agendados</td><td class="c-riskp">Contatos desatualizados</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-1-3" data-code="1.1.3" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.1.3, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.1.4</td><td class="c-act">Analisar possíveis negócios substitutos, caso haja alguma desistência</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista</td><td class="c-dur">3 dias</td><td class="c-d">D-28</td><td class="c-d">D-26</td><td class="c-pred"><span class="none" aria-label="nenhuma">—</span></td><td>Lista de negócios suplentes aprovada pela coordenação</td><td class="c-riskp">Suplentes sem disponibilidade para entrar perto do início do ciclo</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-1-4" data-code="1.1.4" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.1.4, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.1.5</td><td class="c-act">Contatar os 4 mentores sem confirmação, com prazo de resposta até D-24</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista</td><td class="c-dur">3 dias</td><td class="c-d">D-28</td><td class="c-d">D-26</td><td class="c-pred"><span class="none" aria-label="nenhuma">—</span></td><td>Status de cada mentor</td><td class="c-riskp">Resposta só no fim do prazo, sem tempo para repor as vagas</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-1-5" data-code="1.1.5" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.1.5, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.1.6</td><td class="c-act">Prospectar possíveis novos mentores e especialistas para repor até 4 vagas</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista</td><td class="c-dur">3 dias</td><td class="c-d">D-28</td><td class="c-d">D-26</td><td class="c-pred"><span class="none" aria-label="nenhuma">—</span></td><td>Lista de 4 a 6 candidatos com perfil e disponibilidade</td><td class="c-riskp">Poucos candidatos com experiência em restauração e bioeconomia</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-1-6" data-code="1.1.6" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.1.6, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.1.7</td><td class="c-act">Unificar os controles numa base única e atualizar o status</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista</td><td class="c-dur">2 dias</td><td class="c-d">D-27</td><td class="c-d">D-26</td><td class="c-pred">1.1.1</td><td>Base única validada</td><td class="c-riskp">Dados desatualizados: checar com quem alimentava cada controle</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-1-7" data-code="1.1.7" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.1.7, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.1.8</td><td class="c-act">Definir os requisitos do hackathon e pedir ao menos três orçamentos</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Compras</td><td class="c-dur">3 dias</td><td class="c-d">D-27</td><td class="c-d">D-25</td><td class="c-pred">1.1.1</td><td>Termo de referência e cotações solicitadas</td><td class="c-riskp">Regras de compra do financiador alongam a contratação</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-1-8" data-code="1.1.8" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.1.8, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="buf-row"><td class="c-n"><span class="buf-ico" aria-hidden="true"></span></td><td class="c-act"><span class="buf-k">Buffer da etapa</span><span class="buf-note">Protege o início da semana 2, que depende das atividades 1.1.3 a 1.1.6 e 1.1.8.</span></td><td></td><td></td><td class="c-dur">1 dia</td><td class="c-d">D-24</td><td class="c-d">D-24</td><td class="buf-rule" colspan="4">Se for usado, entra no report semanal com o plano de recuperação.</td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.1.9</td><td class="c-act">Receber a resposta dos 4 mentores</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista</td><td class="c-dur">Marco</td><td class="c-d">D-24</td><td class="c-d">D-24</td><td class="c-pred">1.1.5</td><td>Status final dos 4 mentores e vagas a repor definidas</td><td class="c-riskp">Sem resposta até D-24: a vaga passa a um candidato prospectado (1.1.6)</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-1-9" data-code="1.1.9" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.1.9, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.1.10</td><td class="c-act">Fazer a reunião de aprovação das entregas da semana com a coordenação</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Coordenação</td><td class="c-dur">Marco</td><td class="c-d">D-24</td><td class="c-d">D-24</td><td class="c-pred">1.1.3 a 1.1.9</td><td>Entregas da semana aprovadas e registradas em ata</td><td class="c-riskp">Entrega não aprovada: o ajuste entra no alinhamento da semana seguinte</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-1-10" data-code="1.1.10" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.1.10, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="wk-empty" hidden><td colspan="11">Nenhuma atividade com essa prioridade nesta semana.</td></tr>
+          </tbody>
+          <tbody class="wk">
+            <tr class="wk-head"><td class="wk-edt">1.2</td><th scope="rowgroup" class="wk-title"><div class="wk-line"><span class="wk-k">Semana 2</span><span class="wk-name">Fechar as pendências críticas</span></div></th><td></td><td></td><td class="c-dur">5 dias</td><td class="c-d">D-21</td><td class="c-d">D-17</td><td colspan="3" class="wk-extra"><span class="wk-gate">Marcos em D-18 (mentores) e D-17 (diagnósticos, fornecedor e kit de evidências)</span></td><td class="c-prog sum" data-sum="1.2"><span class="prog-val">0%</span><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.2.1</td><td class="c-act">Fazer a reunião de alinhamento da semana com a coordenação</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Coordenação</td><td class="c-dur">1 dia</td><td class="c-d">D-21</td><td class="c-d">D-21</td><td class="c-pred">1.1.10</td><td>Prioridades e decisões da semana registradas em ata</td><td class="c-riskp">Coordenação sem agenda: alinhamento por mensagem, com ata no mesmo dia</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-2-1" data-code="1.2.1" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.2.1, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.2.2</td><td class="c-act">Confirmar os mentores ou fechar a entrada dos novos prospectados</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista</td><td class="c-dur">3 dias</td><td class="c-d">D-21</td><td class="c-d">D-19</td><td class="c-pred">1.1.6, 1.1.9</td><td>10 mentores confirmados</td><td class="c-riskp">Novo mentor com outro perfil exige ajuste no matching</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-2-2" data-code="1.2.2" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.2.2, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.2.3</td><td class="c-act">Fazer um mutirão de diagnósticos, com apoio por ligação ou videochamada</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Negócios</td><td class="c-dur">4 dias</td><td class="c-d">D-21</td><td class="c-d">D-18</td><td class="c-pred">1.1.3, 1.1.4</td><td>20 de 20 diagnósticos concluídos</td><td class="c-riskp">Sem retorno até D-17: entra um suplente da lista (1.1.4)</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-2-3" data-code="1.2.3" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.2.3, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.2.4</td><td class="c-act">Contratar o fornecedor do hackathon</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Compras</td><td class="c-dur">4 dias</td><td class="c-d">D-21</td><td class="c-d">D-18</td><td class="c-pred">1.1.8</td><td>Contrato assinado</td><td class="c-riskp">Aprovação atrasada: plano B com espaço parceiro</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-2-4" data-code="1.2.4" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.2.4, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.2.5</td><td class="c-act">Montar o kit de evidências: presença, ata, fotos, termo de imagem, avaliação e padrão de pastas</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista</td><td class="c-dur">3 dias</td><td class="c-d">D-20</td><td class="c-d">D-18</td><td class="c-pred">1.1.1</td><td>Kit aprovado pela coordenação</td><td class="c-riskp">Termo de uso de imagem sem validação jurídica (LGPD)</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-2-5" data-code="1.2.5" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.2.5, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="buf-row"><td class="c-n"><span class="buf-ico" aria-hidden="true"></span></td><td class="c-act"><span class="buf-k">Buffer da etapa</span><span class="buf-note">Protege o marco D-17: diagnósticos, contrato do fornecedor e kit de evidências.</span></td><td></td><td></td><td class="c-dur">1 dia</td><td class="c-d">D-17</td><td class="c-d">D-17</td><td class="buf-rule" colspan="4">Se for usado, entra no report semanal com o plano de recuperação.</td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.2.6</td><td class="c-act">Fazer a reunião de aprovação das entregas da semana com a coordenação</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Coordenação</td><td class="c-dur">Marco</td><td class="c-d">D-17</td><td class="c-d">D-17</td><td class="c-pred">1.2.1 a 1.2.5</td><td>Mentores, diagnósticos, contrato e kit aprovados (marco D-17)</td><td class="c-riskp">Entrega não aprovada: o ajuste entra no alinhamento da semana seguinte</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-2-6" data-code="1.2.6" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.2.6, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="wk-empty" hidden><td colspan="11">Nenhuma atividade com essa prioridade nesta semana.</td></tr>
+          </tbody>
+          <tbody class="wk">
+            <tr class="wk-head"><td class="wk-edt">1.3</td><th scope="rowgroup" class="wk-title"><div class="wk-line"><span class="wk-k">Semana 3</span><span class="wk-name">Montar a operação</span></div></th><td></td><td></td><td class="c-dur">5 dias</td><td class="c-d">D-14</td><td class="c-d">D-10</td><td colspan="3" class="wk-extra"></td><td class="c-prog sum" data-sum="1.3"><span class="prog-val">0%</span><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.3.1</td><td class="c-act">Fazer a reunião de alinhamento da semana com a coordenação</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Coordenação</td><td class="c-dur">1 dia</td><td class="c-d">D-14</td><td class="c-d">D-14</td><td class="c-pred">1.2.6</td><td>Prioridades e decisões da semana registradas em ata</td><td class="c-riskp">Coordenação sem agenda: alinhamento por mensagem, com ata no mesmo dia</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-3-1" data-code="1.3.1" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.3.1, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P2"><td class="c-n">1.3.2</td><td class="c-act">Fechar o calendário das 10 semanas</td><td><span class="pill p2">P2</span></td><td class="c-res">Analista</td><td class="c-dur">2 dias</td><td class="c-d">D-14</td><td class="c-d">D-13</td><td class="c-pred">1.2.2, 1.2.4</td><td>Calendário publicado para negócios e mentores</td><td class="c-riskp">Mudança de datas depois da publicação confunde negócios e mentores</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-3-2" data-code="1.3.2" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.3.2, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P2"><td class="c-n">1.3.3</td><td class="c-act">Fazer o matching mentor–negócio e a agenda de mentorias do primeiro mês</td><td><span class="pill p2">P2</span></td><td class="c-res">Analista</td><td class="c-dur">3 dias</td><td class="c-d">D-14</td><td class="c-d">D-12</td><td class="c-pred">1.2.2, 1.2.3</td><td>Agenda de mentorias</td><td class="c-riskp">Desafios dos negócios sem mentor com o perfil certo</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-3-3" data-code="1.3.3" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.3.3, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P2"><td class="c-n">1.3.4</td><td class="c-act">Estruturar a régua de comunicação e definir um ponto focal por negócio</td><td><span class="pill p2">P2</span></td><td class="c-res">Analista</td><td class="c-dur">2 dias</td><td class="c-d">D-12</td><td class="c-d">D-11</td><td class="c-pred">1.1.7, 1.3.2</td><td>Régua documentada e grupos criados</td><td class="c-riskp">Conectividade limitada em áreas rurais</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-3-4" data-code="1.3.4" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.3.4, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P2"><td class="c-n">1.3.5</td><td class="c-act">Fazer o onboarding dos mentores</td><td><span class="pill p2">P2</span></td><td class="c-res">Analista, Coordenação, Mentores</td><td class="c-dur">1 dia</td><td class="c-d">D-11</td><td class="c-d">D-11</td><td class="c-pred">1.3.3</td><td>Mentores alinhados e formulário de mentoria ativo</td><td class="c-riskp">Agendas incompatíveis: reunião gravada</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-3-5" data-code="1.3.5" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.3.5, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P2"><td class="c-n">1.3.6</td><td class="c-act">Criar o modelo do report semanal</td><td><span class="pill p2">P2</span></td><td class="c-res">Analista</td><td class="c-dur">2 dias</td><td class="c-d">D-12</td><td class="c-d">D-11</td><td class="c-pred">1.1.7</td><td>Modelo aprovado pela coordenação</td><td class="c-riskp">Report extenso demais para uma leitura rápida da coordenação</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-3-6" data-code="1.3.6" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.3.6, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P3"><td class="c-n">1.3.7</td><td class="c-act">Montar um painel visual dos indicadores</td><td><span class="pill p3">P3</span></td><td class="c-res">Analista</td><td class="c-dur">3 dias</td><td class="c-d">D-13</td><td class="c-d">D-11</td><td class="c-pred">1.1.7, 1.2.3</td><td>Painel publicado</td><td class="c-riskp">Baixo: é P3; se faltar tempo, fica para a semana 1 do ciclo sem afetar a abertura</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-3-7" data-code="1.3.7" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.3.7, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P2"><td class="c-n">1.3.8</td><td class="c-act">Planejar o hackathon com o fornecedor: programação e logística</td><td><span class="pill p2">P2</span></td><td class="c-res">Analista, Fornecedor</td><td class="c-dur">4 dias</td><td class="c-d">D-14</td><td class="c-d">D-11</td><td class="c-pred">1.2.4</td><td>Programação e logística definidas</td><td class="c-riskp">Atraso do fornecedor na definição da estrutura</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-3-8" data-code="1.3.8" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.3.8, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="buf-row"><td class="c-n"><span class="buf-ico" aria-hidden="true"></span></td><td class="c-act"><span class="buf-k">Buffer da etapa</span><span class="buf-note">Protege a semana de prontidão: calendário, agenda de mentorias e modelos prontos.</span></td><td></td><td></td><td class="c-dur">1 dia</td><td class="c-d">D-10</td><td class="c-d">D-10</td><td class="buf-rule" colspan="4">Se for usado, entra no report semanal com o plano de recuperação.</td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.3.9</td><td class="c-act">Fazer a reunião de aprovação das entregas da semana com a coordenação</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Coordenação</td><td class="c-dur">Marco</td><td class="c-d">D-10</td><td class="c-d">D-10</td><td class="c-pred">1.3.1 a 1.3.6, 1.3.8</td><td>Entregas da semana aprovadas e registradas em ata</td><td class="c-riskp">Entrega não aprovada: o ajuste entra no alinhamento da semana seguinte</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-3-9" data-code="1.3.9" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.3.9, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="wk-empty" hidden><td colspan="11">Nenhuma atividade com essa prioridade nesta semana.</td></tr>
+          </tbody>
+          <tbody class="wk">
+            <tr class="wk-head"><td class="wk-edt">1.4</td><th scope="rowgroup" class="wk-title"><div class="wk-line"><span class="wk-k">Semana 4</span><span class="wk-name">Prontidão e lançamento</span></div></th><td></td><td></td><td class="c-dur">5 dias</td><td class="c-d">D-7</td><td class="c-d">D0</td><td colspan="3" class="wk-extra"><span class="wk-gate">Marco em D0: abertura do ciclo</span></td><td class="c-prog sum" data-sum="1.4"><span class="prog-val">0%</span><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.4.1</td><td class="c-act">Fazer a reunião de alinhamento da semana com a coordenação</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Coordenação</td><td class="c-dur">1 dia</td><td class="c-d">D-7</td><td class="c-d">D-7</td><td class="c-pred">1.3.9</td><td>Prioridades e decisões da semana registradas em ata</td><td class="c-riskp">Coordenação sem agenda: alinhamento por mensagem, com ata no mesmo dia</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-4-1" data-code="1.4.1" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.4.1, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P2"><td class="c-n">1.4.2</td><td class="c-act">Abrir a divulgação e as inscrições do hackathon</td><td><span class="pill p2">P2</span></td><td class="c-res">Analista, Parceiros</td><td class="c-dur">3 dias</td><td class="c-d">D-7</td><td class="c-d">D-5</td><td class="c-pred">1.3.8</td><td>Inscrições abertas</td><td class="c-riskp">Pouco tempo de divulgação: ela precisa de cerca de 4 semanas</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-4-2" data-code="1.4.2" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.4.2, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.4.3</td><td class="c-act">Confirmar a presença dos 20 negócios na abertura e colher o termo de compromisso</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Negócios</td><td class="c-dur">3 dias</td><td class="c-d">D-7</td><td class="c-d">D-5</td><td class="c-pred">1.3.2, 1.3.4</td><td>20 confirmações e termos assinados</td><td class="c-riskp">Baixa resposta: ligação individual (Parte 5)</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-4-3" data-code="1.4.3" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.4.3, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.4.4</td><td class="c-act">Rodar o checklist de prontidão</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista</td><td class="c-dur">1 dia</td><td class="c-d">D-4</td><td class="c-d">D-4</td><td class="c-pred">1.3.5, 1.3.6, 1.4.3</td><td>Checklist preenchido, com pendências e ajustes</td><td class="c-riskp">Pendência crítica aberta: escalar antes do D0</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-4-4" data-code="1.4.4" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.4.4, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="buf-row"><td class="c-n"><span class="buf-ico" aria-hidden="true"></span></td><td class="c-act"><span class="buf-k">Buffer da etapa</span><span class="buf-note">Protege a abertura em D0 e absorve os ajustes do checklist de prontidão.</span></td><td></td><td></td><td class="c-dur">1 dia</td><td class="c-d">D-3</td><td class="c-d">D-3</td><td class="buf-rule" colspan="4">Se for usado, entra no report semanal com o plano de recuperação.</td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.4.5</td><td class="c-act">Fazer a reunião de aprovação com a coordenação e decidir seguir para a abertura</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista, Coordenação</td><td class="c-dur">Marco</td><td class="c-d">D-3</td><td class="c-d">D-3</td><td class="c-pred">1.4.1 a 1.4.4</td><td>Decisão de seguir registrada em ata, sem pendência crítica</td><td class="c-riskp">Pendência crítica aberta: a coordenação decide entre ajustar ou adiar a abertura</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-4-5" data-code="1.4.5" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.4.5, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="act-row" data-p="P1"><td class="c-n">1.4.6</td><td class="c-act">Realizar a abertura do ciclo e enviar o primeiro report semanal</td><td><span class="pill p1">P1</span></td><td class="c-res">Analista</td><td class="c-dur">Marco</td><td class="c-d">D0</td><td class="c-d">D0</td><td class="c-pred">1.2.5, 1.4.5</td><td>Encontro com evidências completas e report enviado</td><td class="c-riskp">Ausências na abertura comprometem presença e evidências</td><td class="c-prog"><div class="prog"><input class="prog-in" id="av-1-4-6" data-code="1.4.6" type="number" min="0" max="100" step="5" value="0" inputmode="numeric" aria-label="Avanço da atividade 1.4.6, em porcentagem"><span class="prog-pct" aria-hidden="true">%</span></div><span class="prog-bar" aria-hidden="true"><i></i></span></td></tr>
+            <tr class="wk-empty" hidden><td colspan="11">Nenhuma atividade com essa prioridade nesta semana.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <dialog class="gantt-dlg" id="gantt-dlg" aria-labelledby="gantt-title">
+        <div class="gantt-top">
+          <div>
+            <p class="gantt-k">Plano de ação · dias úteis, de D-28 a D0</p>
+            <h3 id="gantt-title">Gráfico de Gantt</h3>
+            <p class="gantt-note" id="gantt-note"></p>
+          </div>
+          <button type="button" class="gantt-close" id="close-gantt" aria-label="Fechar o Gantt"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13"/></svg></button>
+        </div>
+        <ul class="gantt-legend" aria-label="Legenda">
+          <li><i class="lg g-bar p1"></i>P1</li>
+          <li><i class="lg g-bar p2"></i>P2</li>
+          <li><i class="lg g-bar p3"></i>P3</li>
+          <li><i class="lg lg-sum"></i>Projeto e etapas</li>
+          <li><i class="lg g-buf"></i>Buffer</li>
+          <li><i class="lg-ms"></i>Marco</li>
+          <li><i class="lg lg-prog"></i>Avanço registrado na tabela</li>
+          <li><i class="lg lg-we"></i>Fim de semana</li>
+        </ul>
+        <div class="gantt-scroll">
+          <div class="gantt" id="gantt" role="figure" aria-label="Gantt do plano de ação: uma barra por atividade ao longo dos dias úteis, de D-28 a D0. Os mesmos dados estão na tabela do plano."></div>
+        </div>
+      </dialog>
+    </div>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">1.3</span><h3>Dicionário da EDT</h3></div>
+      <p class="sub-intro">Cada pacote de trabalho da EDT, o que ele inclui e o critério usado para considerá-lo concluído.</p>
+      <div class="table-scroll">
+        <table class="data dict">
+          <caption class="sr-only">Dicionário da EDT: pacote de trabalho, descrição e critério de aceitação</caption>
+          <thead><tr><th scope="col" class="c-n">EDT</th><th scope="col" class="w-pkg">Nome do pacote</th><th scope="col" class="w-desc">Descrição</th><th scope="col">Critério de aceitação</th></tr></thead>
+          <tbody class="wk">
+            <tr class="wk-head"><td class="wk-edt">1.1</td><th scope="rowgroup" colspan="3"><div class="wk-line"><span class="wk-k">Semana 1</span><span class="wk-name">Arrumar a casa e atacar o que demora</span></div></th></tr>
+            <tr><td class="c-n">1.1.1</td><th scope="row" class="c-pkg">Alinhamento de escopo e alçadas</th><td>Reunião de alinhamento (kick-off) com a coordenação para confirmar o escopo do ciclo, as alçadas de decisão, o orçamento e o que o financiador exige como evidência.</td><td class="c-crit">Ata aprovada pela coordenação, com alçadas, orçamento e checklist de evidências registrados na base única.</td></tr>
+            <tr><td class="c-n">1.1.2</td><th scope="row" class="c-pkg">Lições aprendidas de projetos anteriores</th><td>Leitura dos relatórios, atas e avaliações de ciclos e projetos anteriores para identificar o que funcionou e o que evitar, com atenção às evidências exigidas pelo financiador.</td><td class="c-crit">Registro de lições aprendidas, com pontos de atenção, salvo na base única e compartilhado com a coordenação.</td></tr>
+            <tr><td class="c-n">1.1.3</td><th scope="row" class="c-pkg">Contato com os negócios sem diagnóstico</th><td>Cruzamento dos 6 negócios sem diagnóstico com a lista de baixa resposta, seguido de mensagem e ligação para entender as barreiras e agendar o preenchimento.</td><td class="c-crit">Os 6 negócios contatados, cada um com data de diagnóstico agendada ou motivo da recusa registrado.</td></tr>
+            <tr><td class="c-n">1.1.4</td><th scope="row" class="c-pkg">Lista de negócios suplentes</th><td>Análise dos negócios que podem substituir participantes, caso haja alguma desistência.</td><td class="c-crit">Lista de suplentes, em ordem de prioridade, aprovada pela coordenação.</td></tr>
+            <tr><td class="c-n">1.1.5</td><th scope="row" class="c-pkg">Contato com os 4 mentores</th><td>Ligação e e-mail com o convite formal para os 4 mentores sem confirmação, com prazo de resposta até D-24.</td><td class="c-crit">Status de cada mentor registrado até D-24: confirmado, recusou ou sem resposta.</td></tr>
+            <tr><td class="c-n">1.1.6</td><th scope="row" class="c-pkg">Prospecção de novos mentores</th><td>Busca, em paralelo, de possíveis mentores e especialistas com os perfis das vagas em aberto, pela rede da coordenação e do ecossistema.</td><td class="c-crit">Lista de 4 a 6 candidatos com perfil, disponibilidade e interesse confirmados em conversa.</td></tr>
+            <tr><td class="c-n">1.1.7</td><th scope="row" class="c-pkg">Base única de acompanhamento</th><td>Unificação dos controles dispersos em uma planilha única, com uma linha por negócio e um responsável por atualização.</td><td class="c-crit">Base com os 20 negócios e os campos da Parte 4, validada pela coordenação.</td></tr>
+            <tr><td class="c-n">1.1.8</td><th scope="row" class="c-pkg">Requisitos e cotações do hackathon</th><td>Termo de referência do hackathon e pedido de ao menos três orçamentos.</td><td class="c-crit">Termo de referência aprovado e ao menos três cotações solicitadas, conforme as regras de compra do financiador.</td></tr>
+            <tr><td class="c-n">1.1.9</td><th scope="row" class="c-pkg">Resposta dos mentores</th><td>Marco da semana 1: data-limite para os 4 mentores sem confirmação responderem ao convite.</td><td class="c-crit">Status final de cada mentor na base única e vagas a repor definidas com a coordenação, a tempo do marco D-18.</td></tr>
+            <tr><td class="c-n">1.1.10</td><th scope="row" class="c-pkg">Aprovação da semana 1</th><td>Reunião com a coordenação para aprovar as entregas da semana, incluindo a lista de suplentes e o status dos mentores.</td><td class="c-crit">Entregas aprovadas e registradas em ata; o que não for aprovado entra no alinhamento da semana seguinte.</td></tr>
+          </tbody>
+          <tbody class="wk">
+            <tr class="wk-head"><td class="wk-edt">1.2</td><th scope="rowgroup" colspan="3"><div class="wk-line"><span class="wk-k">Semana 2</span><span class="wk-name">Fechar as pendências críticas</span></div></th></tr>
+            <tr><td class="c-n">1.2.1</td><th scope="row" class="c-pkg">Alinhamento da semana 2</th><td>Reunião com a coordenação para revisar o report da semana anterior e definir as prioridades e as decisões da semana.</td><td class="c-crit">Ata com prioridades, decisões e responsáveis enviada no mesmo dia.</td></tr>
+            <tr><td class="c-n">1.2.2</td><th scope="row" class="c-pkg">Confirmação dos mentores</th><td>Confirmação dos mentores atuais e, nas vagas sem resposta, entrada dos novos prospectados.</td><td class="c-crit">10 mentores confirmados por escrito até D-18.</td></tr>
+            <tr><td class="c-n">1.2.3</td><th scope="row" class="c-pkg">Mutirão de diagnósticos</th><td>Sessões individuais de apoio para os negócios concluírem o diagnóstico inicial, por ligação ou videochamada.</td><td class="c-crit">20 de 20 diagnósticos concluídos até D-17, ou suplente acionado pela coordenação.</td></tr>
+            <tr><td class="c-n">1.2.4</td><th scope="row" class="c-pkg">Contratação do fornecedor do hackathon</th><td>Análise das cotações, escolha do fornecedor e assinatura do contrato, seguindo as regras de compra do financiador.</td><td class="c-crit">Contrato assinado até D-17, com escopo, datas e evidências do evento definidos.</td></tr>
+            <tr><td class="c-n">1.2.5</td><th scope="row" class="c-pkg">Kit de evidências</th><td>Modelos de lista de presença, ata, registro fotográfico, termo de uso de imagem, avaliação e padrão de pastas.</td><td class="c-crit">Kit aprovado pela coordenação e alinhado ao checklist do financiador.</td></tr>
+            <tr><td class="c-n">1.2.6</td><th scope="row" class="c-pkg">Aprovação da semana 2</th><td>Reunião com a coordenação para aprovar mentores, diagnósticos, contrato do fornecedor e kit de evidências (marco D-17).</td><td class="c-crit">Entregas aprovadas e registradas em ata; o que não for aprovado entra no alinhamento da semana seguinte.</td></tr>
+          </tbody>
+          <tbody class="wk">
+            <tr class="wk-head"><td class="wk-edt">1.3</td><th scope="rowgroup" colspan="3"><div class="wk-line"><span class="wk-k">Semana 3</span><span class="wk-name">Montar a operação</span></div></th></tr>
+            <tr><td class="c-n">1.3.1</td><th scope="row" class="c-pkg">Alinhamento da semana 3</th><td>Reunião com a coordenação para revisar o report da semana anterior e definir as prioridades e as decisões da semana.</td><td class="c-crit">Ata com prioridades, decisões e responsáveis enviada no mesmo dia.</td></tr>
+            <tr><td class="c-n">1.3.2</td><th scope="row" class="c-pkg">Calendário do ciclo</th><td>Datas dos encontros, das mentorias, do hackathon, da banca e do Demo Day ao longo das 10 semanas.</td><td class="c-crit">Calendário aprovado pela coordenação e enviado a negócios e mentores.</td></tr>
+            <tr><td class="c-n">1.3.3</td><th scope="row" class="c-pkg">Matching e agenda de mentorias</th><td>Combinação de cada negócio com um mentor, a partir do diagnóstico, e agenda das mentorias do primeiro mês.</td><td class="c-crit">Os 20 negócios com mentor definido e as mentorias do primeiro mês agendadas.</td></tr>
+            <tr><td class="c-n">1.3.4</td><th scope="row" class="c-pkg">Régua de comunicação</th><td>Canais, frequência e mensagens-padrão do ciclo, e um ponto focal definido em cada negócio.</td><td class="c-crit">Régua documentada, grupos criados e ponto focal confirmado pelos 20 negócios.</td></tr>
+            <tr><td class="c-n">1.3.5</td><th scope="row" class="c-pkg">Onboarding dos mentores</th><td>Encontro para apresentar o programa, os negócios e o formulário de registro das mentorias.</td><td class="c-crit">Todos os mentores no encontro ou com a gravação assistida, e o formulário de mentoria testado.</td></tr>
+            <tr><td class="c-n">1.3.6</td><th scope="row" class="c-pkg">Modelo do report semanal</th><td>Modelo de uma página com status, entregas, indicadores, riscos, decisões e próximos passos.</td><td class="c-crit">Modelo aprovado pela coordenação.</td></tr>
+            <tr><td class="c-n">1.3.7</td><th scope="row" class="c-pkg">Painel de indicadores</th><td>Painel visual alimentado pela base única, com presença, mentorias e o semáforo dos negócios.</td><td class="c-crit">Painel publicado e atualizado a partir da base única.</td></tr>
+            <tr><td class="c-n">1.3.8</td><th scope="row" class="c-pkg">Planejamento do hackathon</th><td>Programação, logística e evidências do evento definidas com o fornecedor contratado.</td><td class="c-crit">Programação e plano logístico aprovados pela coordenação.</td></tr>
+            <tr><td class="c-n">1.3.9</td><th scope="row" class="c-pkg">Aprovação da semana 3</th><td>Reunião com a coordenação para aprovar calendário, matching, régua de comunicação, onboarding, modelo do report e planejamento do hackathon.</td><td class="c-crit">Entregas aprovadas e registradas em ata; o que não for aprovado entra no alinhamento da semana seguinte.</td></tr>
+          </tbody>
+          <tbody class="wk">
+            <tr class="wk-head"><td class="wk-edt">1.4</td><th scope="rowgroup" colspan="3"><div class="wk-line"><span class="wk-k">Semana 4</span><span class="wk-name">Prontidão e lançamento</span></div></th></tr>
+            <tr><td class="c-n">1.4.1</td><th scope="row" class="c-pkg">Alinhamento da semana 4</th><td>Reunião com a coordenação para revisar o report da semana anterior e definir as prioridades e as decisões da semana.</td><td class="c-crit">Ata com prioridades, decisões e responsáveis enviada no mesmo dia.</td></tr>
+            <tr><td class="c-n">1.4.2</td><th scope="row" class="c-pkg">Divulgação e inscrições do hackathon</th><td>Lançamento das peças de divulgação e abertura do formulário de inscrições.</td><td class="c-crit">Inscrições abertas até D-5, cerca de 4 semanas antes do evento.</td></tr>
+            <tr><td class="c-n">1.4.3</td><th scope="row" class="c-pkg">Confirmação dos 20 negócios</th><td>Mensagem individual com o calendário e o termo de compromisso, e ligação para quem não responder.</td><td class="c-crit">20 presenças confirmadas e termos de compromisso assinados até D-5.</td></tr>
+            <tr><td class="c-n">1.4.4</td><th scope="row" class="c-pkg">Checklist de prontidão</th><td>Revisão de todos os itens necessários para a abertura, com as pendências e os ajustes de cada um.</td><td class="c-crit">Checklist completo, com responsável e prazo para cada pendência, levado à reunião de aprovação.</td></tr>
+            <tr><td class="c-n">1.4.5</td><th scope="row" class="c-pkg">Aprovação final e decisão de seguir</th><td>Reunião com a coordenação para revisar o checklist de prontidão, aprovar as entregas da semana e decidir seguir para a abertura.</td><td class="c-crit">Decisão de seguir registrada em ata, sem pendência crítica aberta.</td></tr>
+            <tr><td class="c-n">1.4.6</td><th scope="row" class="c-pkg">Abertura do ciclo</th><td>Encontro on-line de abertura com negócios, mentores e coordenação, e envio do primeiro report semanal.</td><td class="c-crit">Abertura realizada em D0, com presença, gravação e ata no kit de evidências e o report enviado.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sub duo">
+      <div>
+        <div class="sub-head"><span class="sub-num">1.4</span><h3>Marcos das semanas 1 a 4 do ciclo</h3></div>
+        <ol class="steps">
+          <li><span class="k">Semana 1</span><p>Encontro de abertura, início das mentorias e primeiro report semanal.</p></li>
+          <li><span class="k">Semana 2</span><p>Primeira leitura do semáforo de engajamento e ajustes no matching, se necessário.</p></li>
+          <li><span class="k">Semana 3</span><p>Inscrições do hackathon encerradas, logística fechada e kit de evidências do evento pronto.</p></li>
+          <li><span class="k">Semana 4</span><div><p>Hackathon realizado e balanço do primeiro mês com a coordenação: presença, mentorias realizadas e riscos.</p><span class="hack f-hack"><i class="swatch"></i>Hackathon regional</span></div></li>
+        </ol>
+      </div>
+      <div>
+        <div class="sub-head"><span class="sub-num">1.5</span><h3>Report semanal para a coordenação</h3></div>
+        <div class="sheet">
+          <div class="sheet-head"><b>Report semanal</b><span>1 página · enviado toda sexta-feira</span></div>
+          <ol>
+            <li><span><b>Status por frente:</b> verde, amarelo ou vermelho, com uma linha de explicação.</span></li>
+            <li><span><b>Entregas da semana:</b> o que foi feito frente ao planejado.</span></li>
+            <li><span><b>Indicadores-chave:</b> presença, mentorias realizadas × previstas, negócios em alerta e evidências pendentes.</span></li>
+            <li><span><b>Riscos:</b> o que mudou e o que estou fazendo.</span></li>
+            <li><span><b>Decisões necessárias:</b> o que preciso da coordenação, com prazo.</span></li>
+            <li><span><b>Próxima semana:</b> principais entregas e marcos.</span></li>
+          </ol>
+          <p class="sheet-foot">Revisado em 30 minutos com a coordenação na segunda-feira.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTE 2 ============ -->
+<section class="section alt" id="riscos" aria-labelledby="h-riscos">
+  <div class="wrap">
+    <p class="part"><svg class="part-mark" viewBox="0 0 100 96" aria-hidden="true"><path d="M55 4H83A13 13 0 0 1 96 17V45A13 13 0 0 1 83 58H57A9 9 0 0 0 48 67V80A12 12 0 0 1 36 92H16A12 12 0 0 1 4 80V60A12 12 0 0 1 16 48H33A9 9 0 0 0 42 39V17A13 13 0 0 1 55 4Z"/></svg><span class="part-label">Parte 2</span></p>
+    <h2 id="h-riscos">Gestão de riscos <span class="light">e prioridades</span></h2>
+    <p class="lead">Seis dos oito riscos têm exposição alta, e os riscos 1 a 3 vencem nas próximas duas semanas, por isso vêm primeiro. Cada resposta tem um gatilho: o sinal objetivo de que a prevenção não funcionou e a contingência entra em ação.</p>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">2.1</span><h3>Escala de referência</h3></div>
+      <p class="sub-intro">Probabilidade e gravidade são avaliadas de 1 a 5. A exposição é a multiplicação das duas e define como cada risco é tratado.</p>
+      <div class="table-scroll">
+        <table class="data scale-table">
+          <caption class="sr-only">O que cada nível de probabilidade e de gravidade significa</caption>
+          <thead><tr><th scope="col" class="w-lvl">Nível</th><th scope="col">Probabilidade</th><th scope="col">Gravidade</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" class="lvl"><span class="lvl-n">1</span>Muito baixa</th><td><b>Até 10%</b>Improvável neste ciclo; não há sinal nem histórico.</td><td>Incômodo pontual, resolvido na rotina da equipe.</td></tr>
+            <tr><th scope="row" class="lvl"><span class="lvl-n">2</span>Baixa</th><td><b>10% a 30%</b>Pode acontecer, mas não há sinal no cenário atual.</td><td>Retrabalho interno ou atraso de poucos dias, absorvido pelo buffer, sem efeito nos participantes.</td></tr>
+            <tr><th scope="row" class="lvl"><span class="lvl-n">3</span>Média</th><td><b>30% a 50%</b>Possível; depende de fatores que não controlamos totalmente, como compras, agendas ou conectividade.</td><td>Afeta a experiência de parte dos participantes, gera retrabalho relevante ou atrasa atividades, sem comprometer marcos.</td></tr>
+            <tr><th scope="row" class="lvl"><span class="lvl-n">4</span>Alta</th><td><b>50% a 80%</b>Provável; já há sinal concreto no cenário, como pendências ou falta de resposta.</td><td>Compromete um marco do plano (D-24, D-18, D-17 ou D0), a qualidade das mentorias ou a linha de base e as metas de parte dos negócios.</td></tr>
+            <tr><th scope="row" class="lvl"><span class="lvl-n">5</span>Muito alta</th><td><b>Acima de 80%</b>Quase certo; o problema já está presente e afeta o trabalho.</td><td>Compromete a prestação de contas ao financiador (glosa), a realização de um evento ou a credibilidade do programa.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-scroll expo-scroll">
+        <table class="data expo-table">
+          <caption class="sr-only">Níveis de exposição e como cada um é tratado</caption>
+          <thead><tr><th scope="col" class="w-el">Exposição</th><th scope="col" class="w-ef">Faixa (P × G)</th><th scope="col">Como tratamos</th><th scope="col" class="w-er">Riscos neste nível</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><span class="expo hi"><i aria-hidden="true"></i>Alta</span></th><td class="num">15 a 25</td><td>Resposta em andamento agora, com responsável e prazo. Status no report toda semana e decisão da coordenação quando necessário.</td><td class="num">1, 2, 3, 4, 5 e 6</td></tr>
+            <tr><th scope="row"><span class="expo mid"><i aria-hidden="true"></i>Média</span></th><td class="num">8 a 14</td><td>Prevenção na rotina; o gatilho é conferido toda semana e o risco sobe de nível se o sinal piorar.</td><td class="num">7 e 8</td></tr>
+            <tr><th scope="row"><span class="expo lo"><i aria-hidden="true"></i>Baixa</span></th><td class="num">1 a 7</td><td>Registro e revisão a cada marco do plano.</td><td>Nenhum no momento</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">2.2</span><h3>Registro de riscos</h3></div>
+      <p class="sub-intro">Conduzo a resposta de cada risco, e a coordenação aprova todas elas.</p>
+    <div class="table-scroll bleed">
+        <table class="data risk-table">
+          <caption class="sr-only">Registro de riscos do programa de aceleração</caption>
+          <thead>
+            <tr><th scope="col" class="c-n">Item</th><th scope="col" class="w-risk">Risco</th><th scope="col" class="w-sc">Probabilidade</th><th scope="col" class="w-sc">Gravidade</th><th scope="col" class="w-exp">Exposição</th><th scope="col" class="w-resp">Resposta</th><th scope="col" class="w-desc">Descrição</th><th scope="col" class="w-own">Responsável</th><th scope="col">Custo</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="c-n">1</td>
+              <td class="c-risk"><b>6 negócios sem diagnóstico inicial</b><span class="tag soon">Vence em 2 semanas</span><span class="imp">Impacto: Sem linha de base: mentorias genéricas e nenhuma forma de demonstrar evolução ao financiador.</span></td>
+              <td><span class="score"><b>4</b>Alta</span></td>
+              <td><span class="score"><b>4</b>Alta</span></td>
+              <td><span class="expo hi"><i aria-hidden="true"></i><b>16</b>Alta</span></td>
+              <td class="c-strat">Mitigar</td>
+              <td class="c-desc"><span class="d-k">Prevenção</span><span class="d-t">Ligação individual, apoio no preenchimento, prazo-limite em D-17 e lista de suplentes definida com a coordenação na semana 1.</span><span class="d-k trig">Gatilho e contingência</span><span class="d-t">Sem diagnóstico em D-17: a coordenação decide entre prazo final e a entrada de um suplente da lista.</span></td>
+              <td class="c-own">Analista<span>apoio e aprovação: Coordenação</span></td>
+              <td class="c-cost"><b>Baixo</b><span>horas da equipe</span></td>
+            </tr>
+            <tr>
+              <td class="c-n">2</td>
+              <td class="c-risk"><b>4 mentores sem confirmação, 40% da capacidade</b><span class="tag soon">Vence em 2 semanas</span><span class="imp">Impacto: Sobrecarga dos demais, atraso e queda de qualidade nas mentorias.</span></td>
+              <td><span class="score"><b>4</b>Alta</span></td>
+              <td><span class="score"><b>4</b>Alta</span></td>
+              <td><span class="expo hi"><i aria-hidden="true"></i><b>16</b>Alta</span></td>
+              <td class="c-strat">Mitigar</td>
+              <td class="c-desc"><span class="d-k">Prevenção</span><span class="d-t">Prazo de resposta aos 4 mentores e, em paralelo, prospecção de novos nomes desde a semana 1; opção de mentoria online.</span><span class="d-k trig">Gatilho e contingência</span><span class="d-t">Sem confirmação em D-18: os mentores prospectados assumem as vagas; faltando o perfil, um especialista pontual.</span></td>
+              <td class="c-own">Analista<span>apoio e aprovação: Coordenação</span></td>
+              <td class="c-cost"><b>Médio, se acionado</b><span>especialista pontual</span></td>
+            </tr>
+            <tr>
+              <td class="c-n">3</td>
+              <td class="c-risk"><b>Hackathon sem fornecedor de estrutura</b><span class="tag soon">Vence em 2 semanas</span><span class="imp">Impacto: Evento mais caro, improvisado ou adiado, e menos pipeline para o próximo ciclo.</span></td>
+              <td><span class="score"><b>3</b>Média</span></td>
+              <td><span class="score"><b>5</b>Muito alta</span></td>
+              <td><span class="expo hi"><i aria-hidden="true"></i><b>15</b>Alta</span></td>
+              <td class="c-strat">Mitigar</td>
+              <td class="c-desc"><span class="d-k">Prevenção</span><span class="d-t">Termo de referência e cotações na semana 1, com data-limite de contratação.</span><span class="d-k trig">Gatilho e contingência</span><span class="d-t">Sem contrato em D-17: plano B com espaço parceiro ou estrutura própria.</span></td>
+              <td class="c-own">Analista<span>apoio: Compras</span><span>aprovação: Coordenação</span></td>
+              <td class="c-cost"><b>Médio, se acionado</b><span>plano B a orçar</span></td>
+            </tr>
+            <tr>
+              <td class="c-n">4</td>
+              <td class="c-risk"><b>Baixa resposta dos participantes</b><span class="imp">Impacto: Evasão, presença baixa e metas de participação e de evidências comprometidas.</span></td>
+              <td><span class="score"><b>4</b>Alta</span></td>
+              <td><span class="score"><b>4</b>Alta</span></td>
+              <td><span class="expo hi"><i aria-hidden="true"></i><b>16</b>Alta</span></td>
+              <td class="c-strat">Mitigar</td>
+              <td class="c-desc"><span class="d-k">Prevenção</span><span class="d-t">Termo de compromisso, ponto focal por negócio e régua de comunicação.</span><span class="d-k trig">Gatilho e contingência</span><span class="d-t">Status vermelho no semáforo (2 faltas seguidas ou 10 dias sem resposta): plano de retenção com a coordenação.</span></td>
+              <td class="c-own">Analista<span>apoio e aprovação: Coordenação</span></td>
+              <td class="c-cost"><b>Baixo</b><span>horas da equipe</span></td>
+            </tr>
+            <tr>
+              <td class="c-n">5</td>
+              <td class="c-risk"><b>Dados dispersos e desatualizados</b><span class="imp">Impacto: Report inconsistente, retrabalho e decisões sem base.</span></td>
+              <td><span class="score"><b>5</b>Muito alta</span></td>
+              <td><span class="score"><b>3</b>Média</span></td>
+              <td><span class="expo hi"><i aria-hidden="true"></i><b>15</b>Alta</span></td>
+              <td class="c-strat">Evitar</td>
+              <td class="c-desc"><span class="d-k">Prevenção</span><span class="d-t">Base única, um responsável por dado e atualização toda sexta-feira.</span><span class="d-k trig">Gatilho e contingência</span><span class="d-t">Divergência entre report e base: correção na fonte antes do envio.</span></td>
+              <td class="c-own">Analista<span>aprovação: Coordenação</span></td>
+              <td class="c-cost"><b>Baixo</b><span>horas da equipe na semana 1</span></td>
+            </tr>
+            <tr>
+              <td class="c-n">6</td>
+              <td class="c-risk"><b>Evidências incompletas para o financiador</b><span class="imp">Impacto: Glosa de despesas, retrabalho no fim do ciclo e desgaste da relação.</span></td>
+              <td><span class="score"><b>3</b>Média</span></td>
+              <td><span class="score"><b>5</b>Muito alta</span></td>
+              <td><span class="expo hi"><i aria-hidden="true"></i><b>15</b>Alta</span></td>
+              <td class="c-strat">Mitigar</td>
+              <td class="c-desc"><span class="d-k">Prevenção</span><span class="d-t">Kit de evidências e um responsável por evidência em cada atividade.</span><span class="d-k trig">Gatilho e contingência</span><span class="d-t">Falta na conferência de sexta: evidência recuperada em até 48 horas.</span></td>
+              <td class="c-own">Analista<span>aprovação: Coordenação</span></td>
+              <td class="c-cost"><b>Baixo</b><span>horas da equipe; evita glosa</span></td>
+            </tr>
+            <tr>
+              <td class="c-n">7</td>
+              <td class="c-risk"><b>Picos de trabalho: hackathon na semana 4, banca e Demo Day na reta final</b><span class="imp">Impacto: Queda de qualidade na operação regular.</span></td>
+              <td><span class="score"><b>3</b>Média</span></td>
+              <td><span class="score"><b>3</b>Média</span></td>
+              <td><span class="expo mid"><i aria-hidden="true"></i><b>9</b>Média</span></td>
+              <td class="c-strat">Mitigar</td>
+              <td class="c-desc"><span class="d-k">Prevenção</span><span class="d-t">Cronograma integrado, tarefas antecipadas e buffers antes dos picos.</span><span class="d-k trig">Gatilho e contingência</span><span class="d-t">Entrega crítica atrasada: repriorização com a coordenação.</span></td>
+              <td class="c-own">Analista<span>apoio e aprovação: Coordenação</span></td>
+              <td class="c-cost"><b>Baixo</b><span>reorganização da agenda</span></td>
+            </tr>
+            <tr>
+              <td class="c-n">8</td>
+              <td class="c-risk"><b>Conectividade e deslocamento de negócios em áreas rurais</b><span class="imp">Impacto: Ausências e experiência desigual entre os participantes.</span></td>
+              <td><span class="score"><b>3</b>Média</span></td>
+              <td><span class="score"><b>3</b>Média</span></td>
+              <td><span class="expo mid"><i aria-hidden="true"></i><b>9</b>Média</span></td>
+              <td class="c-strat">Aceitar (ativa)</td>
+              <td class="c-desc"><span class="d-k">Preparação</span><span class="d-t">Encontros on-line com gravação, materiais leves pelo WhatsApp e opção de participar só por áudio.</span><span class="d-k trig">Gatilho e contingência</span><span class="d-t">Ausência por conectividade: reposição individual do conteúdo.</span></td>
+              <td class="c-own">Analista<span>aprovação: Coordenação</span></td>
+              <td class="c-cost"><b>Baixo</b><span>gravação e transmissão dos encontros</span></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTE 3 ============ -->
+<section class="section" id="stakeholders" aria-labelledby="h-stk">
+  <div class="wrap">
+    <p class="part"><svg class="part-mark" viewBox="0 0 100 96" aria-hidden="true"><path d="M55 4H83A13 13 0 0 1 96 17V45A13 13 0 0 1 83 58H57A9 9 0 0 0 48 67V80A12 12 0 0 1 36 92H16A12 12 0 0 1 4 80V60A12 12 0 0 1 16 48H33A9 9 0 0 0 42 39V17A13 13 0 0 1 55 4Z"/></svg><span class="part-label">Parte 3</span></p>
+    <h2 id="h-stk"><span class="light">Gestão dos</span> stakeholders</h2>
+    <p class="lead">Escolhi os três stakeholders ligados aos principais problemas do cenário: quem vive o programa (negócios), quem entrega a aceleração (mentores) e quem financia e avalia o resultado (financiador). A matriz de responsabilidades completa o quadro com os oito envolvidos e o papel de cada um em cada entrega.</p>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">3.1</span><h3>Os três stakeholders prioritários</h3></div>
+      <p class="sub-intro">A coordenação, que aprova as entregas (ver 3.2), é acompanhada pelo report semanal (item 1.5).</p>
+    <div class="stk-grid">
+      <article class="stk">
+        <div class="stk-head"><p class="kicker"><span>Quem vive o programa</span></p><h3>Negócios acelerados</h3></div>
+        <div class="stk-row"><p class="label">Importância</p><p>São a razão do programa. O engajamento deles vira resultado, e a participação vira evidência.</p></div>
+        <div class="stk-row"><p class="label">O que compartilhar</p><p>Calendário, combinados de participação, materiais, próximos passos após cada mentoria e avisos de logística.</p></div>
+        <div class="stk-row"><p class="label">Estratégia</p><p>Grupo de WhatsApp só para avisos e ponto focal individual. Mensagens curtas e personalizadas; ligação quando não há resposta.</p></div>
+        <div class="stk-row freq"><p class="label">Frequência</p><p>Lembrete antes de cada atividade, check-in individual quinzenal e pesquisa rápida a cada marco.</p></div>
+      </article>
+      <article class="stk">
+        <div class="stk-head"><p class="kicker"><span>Quem entrega a aceleração</span></p><h3>Mentores</h3></div>
+        <div class="stk-row"><p class="label">Importância</p><p>Garantem a qualidade da aceleração. Uma mentoria bem preparada vale mais que várias genéricas.</p></div>
+        <div class="stk-row"><p class="label">O que compartilhar</p><p>Resumo de uma página de cada negócio, agenda, objetivo de cada sessão e retorno dos negócios.</p></div>
+        <div class="stk-row"><p class="label">Estratégia</p><p>Onboarding coletivo, briefing antes e formulário de dois minutos depois de cada mentoria. Reconhecimento público no Demo Day.</p></div>
+        <div class="stk-row freq"><p class="label">Frequência</p><p>Contato antes e depois de cada mentoria e alinhamento coletivo mensal.</p></div>
+      </article>
+      <article class="stk">
+        <div class="stk-head"><p class="kicker"><span>Quem financia e avalia</span></p><h3>Financiador</h3></div>
+        <div class="stk-row"><p class="label">Importância</p><p>Garante o recurso e define o que conta como sucesso. A confiança dele sustenta o projeto e os próximos ciclos.</p></div>
+        <div class="stk-row"><p class="label">O que compartilhar</p><p>Andamento frente ao plano de trabalho, indicadores, evidências por atividade, desvios com plano de ação e histórias de impacto.</p></div>
+        <div class="stk-row"><p class="label">Estratégia</p><p>Relação conduzida com a coordenação e sem surpresas: desvios comunicados cedo, com solução proposta. Convite para a banca e o Demo Day.</p></div>
+        <div class="stk-row freq"><p class="label">Frequência</p><p>Conforme o contrato (por exemplo, mensal), com evidências consolidadas toda semana e relatório final.</p></div>
+      </article>
+    </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">3.2</span><h3>Matriz de responsabilidades</h3></div>
+      <p class="sub-intro">Cada entrega e cada área de planejamento e controle tem um único aprovador, o que evita decisões sem dono: a coordenação aprova todas elas. Eu executo todas as entregas e áreas, conduzo o dia a dia e acumulo a comunicação do programa.</p>
+      <ul class="raci-legend">
+        <li><span class="rc a">A</span><span><b>Aprova:</b> responde pelo resultado e decide</span></li>
+        <li><span class="rc r">R</span><span><b>Responsável:</b> executa a entrega</span></li>
+        <li><span class="rc c">C</span><span><b>Consultado:</b> contribui antes da decisão</span></li>
+        <li><span class="rc i">I</span><span><b>Informado:</b> recebe o resultado</span></li>
+      </ul>
+      <div class="table-scroll bleed">
+        <table class="data raci">
+          <caption class="sr-only">Matriz de responsabilidades: quem executa, aprova, é consultado ou informado em cada entrega e área</caption>
+          <thead>
+            <tr><th scope="col" rowspan="2" class="c-n">Nº</th><th scope="col" rowspan="2" class="w-name">Nome</th><th scope="col" rowspan="2" class="w-area">Área</th><th scope="col" rowspan="2" class="vcol"><span class="vh">Alinhamento e alçadas</span></th><th scope="col" rowspan="2" class="vcol"><span class="vh">Diagnóstico inicial</span></th><th scope="col" rowspan="2" class="vcol"><span class="vh">Mentorias e matching</span></th><th scope="col" rowspan="2" class="vcol"><span class="vh">Encontros do ciclo</span></th><th scope="col" rowspan="2" class="vcol"><span class="vh">Hackathon regional</span></th><th scope="col" rowspan="2" class="vcol"><span class="vh">Banca e Demo Day</span></th><th scope="col" rowspan="2" class="vcol"><span class="vh">Prestação de contas</span></th><th scope="colgroup" colspan="8" class="grp k1">Planejamento e Controle</th></tr>
+            <tr><th scope="col" class="vcol k1"><span class="vh">Escopo</span></th><th scope="col" class="vcol"><span class="vh">Tempo</span></th><th scope="col" class="vcol"><span class="vh">Custo</span></th><th scope="col" class="vcol"><span class="vh">Qualidade</span></th><th scope="col" class="vcol"><span class="vh">Recursos Humanos</span></th><th scope="col" class="vcol"><span class="vh">Comunicações</span></th><th scope="col" class="vcol"><span class="vh">Riscos</span></th><th scope="col" class="vcol"><span class="vh">Aquisição</span></th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="c-n">1</td><th scope="row" class="c-name">Analista de projetos<span class="role-note">Acumula a comunicação</span></th><td class="c-area">Equipe interna</td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell k1"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td></tr>
+            <tr><td class="c-n">2</td><th scope="row" class="c-name">Coordenação do projeto</th><td class="c-area">Equipe interna</td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell k1"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td><td class="rc-cell"><span class="rc a" title="Aprova">A</span></td></tr>
+            <tr><td class="c-n">3</td><th scope="row" class="c-name">Compras e administrativo</th><td class="c-area">Equipe interna</td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell k1"></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td></tr>
+            <tr><td class="c-n">4</td><th scope="row" class="c-name">Negócios acelerados (20)<span class="prio-tag">Prioritário · 3.1</span></th><td class="c-area">Participantes</td><td class="rc-cell"></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell k1"></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"></td><td class="rc-cell"></td></tr>
+            <tr><td class="c-n">5</td><th scope="row" class="c-name">Mentores e especialistas (10)<span class="prio-tag">Prioritário · 3.1</span></th><td class="c-area">Rede de apoio</td><td class="rc-cell"></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"></td><td class="rc-cell k1"></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"></td><td class="rc-cell"></td></tr>
+            <tr><td class="c-n">6</td><th scope="row" class="c-name">Financiador<span class="prio-tag">Prioritário · 3.1</span></th><td class="c-area">Parceiro do projeto</td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell k1"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td></tr>
+            <tr><td class="c-n">7</td><th scope="row" class="c-name">Fornecedor do hackathon</th><td class="c-area">Externo, a contratar</td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc r" title="Responsável">R</span></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell k1"></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc i" title="Informado">I</span></td></tr>
+            <tr><td class="c-n">8</td><th scope="row" class="c-name">Consultoria da trilha de investimento</th><td class="c-area">Externo, parceira</td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"><span class="rc c" title="Consultado">C</span></td><td class="rc-cell"></td><td class="rc-cell k1"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td><td class="rc-cell"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTE 4 ============ -->
+<section class="section alt" id="acompanhamento" aria-labelledby="h-acomp">
+  <div class="wrap">
+    <p class="part"><svg class="part-mark" viewBox="0 0 100 96" aria-hidden="true"><path d="M55 4H83A13 13 0 0 1 96 17V45A13 13 0 0 1 83 58H57A9 9 0 0 0 48 67V80A12 12 0 0 1 36 92H16A12 12 0 0 1 4 80V60A12 12 0 0 1 16 48H33A9 9 0 0 0 42 39V17A13 13 0 0 1 55 4Z"/></svg><span class="part-label">Parte 4</span></p>
+    <h2 id="h-acomp">Acompanhamento <span class="light">dos negócios</span></h2>
+    <p class="lead">Cada informação acompanhada precisa apoiar uma decisão da equipe, e cada dado é coletado uma única vez para servir à gestão diária, ao report da coordenação e ao relatório do financiador.</p>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">4.1</span><h3>O que acompanhar</h3></div>
+      <div class="table-scroll">
+        <table class="data">
+          <thead><tr><th scope="col">Bloco</th><th scope="col">O que acompanhar</th><th scope="col">Fonte</th><th scope="col">Frequência</th><th scope="col">Decisão que apoia</th></tr></thead>
+          <tbody>
+            <tr><td class="blk">Linha de base</td><td>Estágio do negócio, faturamento, clientes, equipe, principais desafios e indicadores de impacto (hectares em restauração ou conservação, mudas, famílias envolvidas, produtos da sociobiodiversidade comercializados)</td><td>Diagnóstico</td><td>Início e fim do ciclo</td><td class="dec">Personalizar mentorias e demonstrar evolução ao financiador</td></tr>
+            <tr><td class="blk">Engajamento</td><td>Presença nos encontros, mentorias realizadas × previstas, entregas cumpridas e tempo de resposta</td><td>Listas de presença e formulário de mentoria</td><td>Semanal</td><td class="dec">Quem precisa de contato de retenção</td></tr>
+            <tr><td class="blk">Jornada</td><td>Desafios do momento, demandas de apoio e próximos passos combinados</td><td>Formulário de mentoria</td><td>A cada mentoria</td><td class="dec">Acionar especialista e ajustar o conteúdo dos encontros</td></tr>
+            <tr><td class="blk">Resultado</td><td>Evolução dos indicadores de negócio e de impacto; prontidão para investimento (pitch, finanças organizadas, modelo de negócio claro)</td><td>Diagnóstico final e avaliação da banca</td><td>Início, semana 5 e fim</td><td class="dec">Foco da preparação para banca e Demo Day e indicação para a trilha de investimento</td></tr>
+            <tr><td class="blk">Experiência</td><td>Satisfação com encontros e mentorias (nota de 0 a 10 e comentário)</td><td>Pesquisa rápida</td><td>A cada marco</td><td class="dec">Ajustar formato e conteúdo ainda durante o ciclo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">4.2</span><h3>Semáforo de engajamento</h3></div>
+      <div class="lights">
+        <article class="lamp" style="--st:var(--st-good)">
+          <div class="lamp-top"><span class="st-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg></span><h4>Verde</h4></div>
+          <p class="label">Critério</p><p>Presença e mentorias em dia; responde às comunicações.</p>
+          <p class="label">Ação</p><p>Acompanhamento de rotina.</p>
+        </article>
+        <article class="lamp" style="--st:var(--st-warn)">
+          <div class="lamp-top"><span class="st-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M8 3.5v5.5"/><path d="M8 12.4v.1"/></svg></span><h4>Amarelo</h4></div>
+          <p class="label">Critério</p><p>1 falta, 5 dias sem resposta ou mentoria atrasada.</p>
+          <p class="label">Ação</p><p>Mensagem individual do ponto focal (Parte 5); sem retorno em 48 horas, ligação.</p>
+        </article>
+        <article class="lamp" style="--st:var(--st-crit);--on-st:var(--white)">
+          <div class="lamp-top"><span class="st-icon" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg></span><h4>Vermelho</h4></div>
+          <p class="label">Critério</p><p>2 faltas seguidas, 10 dias sem resposta ou demanda crítica sem solução.</p>
+          <p class="label">Ação</p><p>Plano de retenção com a coordenação e registro no report semanal.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">4.3</span><h3>Fluxo dos dados</h3></div>
+      <figure class="flow">
+        <div class="flow-grid">
+          <div class="flow-col">
+            <p class="flow-k">Coleta</p>
+            <div class="flow-box">Listas de presença</div>
+            <div class="flow-box">Formulário de mentoria</div>
+            <div class="flow-box">Diagnóstico e pesquisas</div>
+          </div>
+          <div class="arrow" aria-hidden="true"><span>coletado uma vez</span><svg viewBox="0 0 54 16"><path d="M1 8H51" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M45 3l6 5-6 5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></div>
+          <div class="flow-col mid">
+            <p class="flow-k">Consolidação</p>
+            <div class="flow-hub"><strong>Base única</strong><span>uma linha por negócio</span><span>atualizada toda sexta-feira</span></div>
+          </div>
+          <div class="arrow" aria-hidden="true"><span>usado três vezes</span><svg viewBox="0 0 54 16"><path d="M1 8H51" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M45 3l6 5-6 5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></div>
+          <div class="flow-col">
+            <p class="flow-k">Uso</p>
+            <div class="flow-box">Decisões da equipe<span>semáforo e próximos passos</span></div>
+            <div class="flow-box">Report semanal<span>coordenação, toda sexta</span></div>
+            <div class="flow-box">Relatório final<span>financiador, fim do ciclo</span></div>
+          </div>
+        </div>
+        <figcaption>Três fontes alimentam uma base única, que serve às decisões da equipe, ao report da coordenação e ao relatório do financiador. Atualizo a base toda sexta-feira e respondo pela integridade dela.</figcaption>
+      </figure>
+    </div>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">4.4</span><h3>Estrutura da planilha</h3></div>
+      <p class="sub-intro">Uma linha por negócio, com as colunas:</p>
+      <ul class="cols-list">
+        <li>Negócio</li><li>Bioma e cadeia</li><li>Ponto focal</li><li>Diagnóstico</li><li>Mentor</li><li>Presença</li><li>Mentorias</li><li>Status</li><li>Principal desafio</li><li>Demanda de apoio</li><li>Próximo passo e prazo</li><li>Indicadores de negócio e de impacto (início e atual)</li>
+      </ul>
+      <p class="example-tag">Exemplo ilustrativo, com negócios fictícios:</p>
+      <div class="table-scroll">
+        <table class="data sheet-ex">
+          <thead><tr><th scope="col">Negócio</th><th scope="col">Presença</th><th scope="col">Mentorias</th><th scope="col">Status</th><th scope="col">Principal desafio</th><th scope="col">Próximo passo</th></tr></thead>
+          <tbody>
+            <tr><td class="blk">Negócio A<br><span style="font-weight:400;color:var(--ink-2);font-size:13px">bioeconomia, Cerrado</span></td><td class="num">100%</td><td class="num">2 de 2</td><td><span class="status" style="--st:var(--st-good)"><i></i>Verde</span></td><td>Precificação dos produtos</td><td>Revisar a planilha de custos com o mentor</td></tr>
+            <tr><td class="blk">Negócio B<br><span style="font-weight:400;color:var(--ink-2);font-size:13px">viveiro de mudas, Amazônia</span></td><td class="num">75%</td><td class="num">1 de 2</td><td><span class="status" style="--st:var(--st-warn)"><i></i>Amarelo</span></td><td>Capital de giro</td><td>Mensagem do ponto focal até quarta-feira</td></tr>
+            <tr><td class="blk">Negócio C<br><span style="font-weight:400;color:var(--ink-2);font-size:13px">restauração, Cerrado</span></td><td class="num">50%</td><td class="num">0 de 2</td><td><span class="status" style="--st:var(--st-crit)"><i></i>Vermelho</span></td><td>Sem retorno há 10 dias</td><td>Plano de retenção com a coordenação</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-head"><span class="sub-num">4.5</span><h3>Eventos de acompanhamento nos primeiros 30 dias</h3></div>
+      <p class="sub-intro">Os dez eventos cobrem os 30 dias até a abertura do ciclo (D-30 a D0) e respondem aos pontos do cenário: diagnósticos pendentes, mentores sem confirmação, fornecedor do hackathon, evidências exigidas pelo financiador e acompanhamento semanal da coordenação. Depois do D0, o acompanhamento segue o report semanal (item 1.5) e a rotina da Parte 6.</p>
+      <div class="table-scroll bleed">
+        <table class="data events">
+          <caption class="sr-only">Eventos de comunicação e acompanhamento nos 30 dias até a abertura do ciclo</caption>
+          <thead>
+            <tr><th scope="col" class="c-n">Nº</th><th scope="col" class="w-ev">Evento</th><th scope="col" class="w-obj">Objetivo</th><th scope="col" class="w-met">Metodologia</th><th scope="col" class="w-resp">Responsável</th><th scope="col" class="w-env">Envolvidos</th><th scope="col" class="w-when">Data e horário</th><th scope="col" class="w-dur">Duração</th><th scope="col" class="w-loc">Local</th><th scope="col">Outros</th></tr>
+          </thead>
+          <tbody class="wk">
+            <tr class="wk-head"><th scope="rowgroup" colspan="10"><div class="wk-line"><span class="wk-k">Semana 1</span><span class="wk-d">D-28 a D-24</span></div></th></tr>
+            <tr><td class="c-n">1</td><th scope="row" class="c-ev">Kick-off com a coordenação</th><td>Alinhar escopo, alçadas, orçamento e exigências do financiador, e apresentar o plano de 30 dias e o registro de riscos.</td><td>Reunião com apresentação do plano, seguida de ata com decisões e responsáveis.</td><td class="c-resp">Maria Alice Magalhães de Castro<span>Analista de projetos</span></td><td>Coordenação do projeto</td><td class="c-when">D-28, às 9h</td><td class="c-dur">2 horas</td><td>Videoconferência</td><td>Ata distribuída em até 24h. Alçadas e checklist de evidências registrados na base única.</td></tr>
+            <tr><td class="c-n">2</td><th scope="row" class="c-ev">Contato com os negócios sem diagnóstico</th><td>Entender as barreiras dos 6 negócios, verificar se são os mesmos com baixa resposta e concluir os diagnósticos.</td><td>Mensagem individual pelo WhatsApp (Parte 5) e ligação; depois, mutirão com apoio no preenchimento.</td><td class="c-resp">Maria Alice Magalhães de Castro<span>Analista de projetos</span></td><td>Ponto focal dos 6 negócios</td><td class="c-when">Contato de D-28 a D-26; mutirão de D-21 a D-18, em horário combinado</td><td class="c-dur">20 min (contato); 1 hora (mutirão)</td><td>WhatsApp, ligação e videochamada</td><td>Em paralelo, preparo a lista de suplentes, aprovada pela coordenação na sexta (atividades 1.1.4 e 1.1.10). Sem diagnóstico em D-17, entra um suplente (risco 1).</td></tr>
+            <tr><td class="c-n">3</td><th scope="row" class="c-ev">Contato com os mentores e prospecção de novos</th><td>Confirmar a disponibilidade dos 4 mentores e, em paralelo, prospectar novos nomes para repor até 4 vagas.</td><td>Ligação e e-mail com o convite formal e prazo de resposta; conversa de apresentação com cada candidato prospectado.</td><td class="c-resp">Maria Alice Magalhães de Castro<span>Analista de projetos</span></td><td>4 mentores e candidatos prospectados; coordenação na indicação de nomes</td><td class="c-when">Contato e prospecção em paralelo, de D-28 a D-26; resposta dos 4 até D-24</td><td class="c-dur">15 min por ligação; 30 min por candidato</td><td>Ligação, e-mail e videochamada</td><td>Sem resposta até D-24, os candidatos prospectados assumem as vagas para cumprir o marco D-18 (risco 2).</td></tr>
+            <tr><td class="c-n">4</td><th scope="row" class="c-ev">Alinhamento com o financiador</th><td>Confirmar as evidências exigidas, o formato dos relatórios e as regras de uso do recurso antes do ciclo.</td><td>Reunião com o checklist de evidências como pauta.</td><td class="c-resp">Coordenação do projeto<span>checklist preparado pela analista</span></td><td>Financiador e analista</td><td class="c-when">D-25, às 10h</td><td class="c-dur">1 hora</td><td>Videoconferência</td><td>O checklist validado orienta o kit de evidências (atividade 1.2.5).</td></tr>
+            <tr><td class="c-n">5</td><th scope="row" class="c-ev">Reuniões de aprovação das entregas (1 a 4)</th><td>Apresentar as entregas da semana e obter a aprovação da coordenação. A última decide seguir para a abertura.</td><td>Apresentação das entregas e das pendências, com aprovação registrada em ata. Em D-3, a pauta inclui o checklist de prontidão.</td><td class="c-resp">Maria Alice Magalhães de Castro<span>Analista de projetos</span></td><td>Coordenação do projeto</td><td class="c-when">D-24, D-17, D-10 e D-3, sempre sexta às 16h</td><td class="c-dur">45 min cada</td><td>Videoconferência</td><td>O que não for aprovado entra no alinhamento da semana seguinte (atividades 1.1.10, 1.2.6, 1.3.9 e 1.4.5).</td></tr>
+          </tbody>
+          <tbody class="wk">
+            <tr class="wk-head"><th scope="rowgroup" colspan="10"><div class="wk-line"><span class="wk-k">Semana 2</span><span class="wk-d">D-21 a D-17</span></div></th></tr>
+            <tr><td class="c-n">6</td><th scope="row" class="c-ev">Reuniões de alinhamento semanais (1 a 3)</th><td>Revisar o report da semana anterior, definir as prioridades da semana e obter decisões sobre suplentes, reservas e fornecedor.</td><td>Reunião de status, precedida do envio do plano atualizado e do registro de riscos por e-mail.</td><td class="c-resp">Maria Alice Magalhães de Castro<span>Analista de projetos</span></td><td>Coordenação do projeto</td><td class="c-when">D-21, D-14 e D-7, sempre segunda às 9h</td><td class="c-dur">45 min cada</td><td>Videoconferência</td><td>Ata com decisões arquivada na pasta do projeto (atividades 1.2.1, 1.3.1 e 1.4.1). A partir do D0, segue o report semanal (item 1.5).</td></tr>
+          </tbody>
+          <tbody class="wk">
+            <tr class="wk-head"><th scope="rowgroup" colspan="10"><div class="wk-line"><span class="wk-k">Semana 3</span><span class="wk-d">D-14 a D-10</span></div></th></tr>
+            <tr><td class="c-n">7</td><th scope="row" class="c-ev">Kick-off com o fornecedor do hackathon</th><td>Alinhar estrutura, logística, cronograma e evidências do hackathon da semana 4 do ciclo.</td><td>Reunião técnica com o checklist do evento, seguida de ata com responsabilidades e prazos.</td><td class="c-resp">Maria Alice Magalhães de Castro<span>Analista de projetos</span></td><td>Fornecedor contratado; compras</td><td class="c-when">D-14, às 14h</td><td class="c-dur">1h30</td><td>Videoconferência, com visita virtual ao espaço do evento</td><td>Cronograma do evento aprovado antes da abertura das inscrições (atividade 1.4.2).</td></tr>
+            <tr><td class="c-n">8</td><th scope="row" class="c-ev">Calendário e convite para a abertura</th><td>Divulgar o calendário das 10 semanas, com hackathon e Demo Day, e confirmar a presença dos 20 negócios na abertura.</td><td>Mensagem individual pelo WhatsApp com o calendário e o termo de compromisso; ligação em 48h para quem não responder.</td><td class="c-resp">Maria Alice Magalhães de Castro<span>Analista de projetos</span></td><td>20 negócios; mentores recebem o calendário</td><td class="c-when">Calendário em D-13; confirmações de D-7 a D-5</td><td class="c-dur">5 a 10 min por negócio</td><td>WhatsApp e ligação</td><td>20 confirmações e termos assinados até D-5 (atividade 1.4.3).</td></tr>
+            <tr><td class="c-n">9</td><th scope="row" class="c-ev">Onboarding dos mentores</th><td>Apresentar o programa, o perfil dos 20 negócios e o matching, e combinar como as mentorias serão registradas.</td><td>Encontro coletivo com apresentação, seguido do envio do resumo de uma página de cada negócio e do formulário de mentoria.</td><td class="c-resp">Maria Alice Magalhães de Castro<span>Analista de projetos</span></td><td>10 mentores e especialistas; coordenação na abertura</td><td class="c-when">D-11, às 18h30</td><td class="c-dur">1h30</td><td>Videoconferência</td><td>Gravação para quem não puder participar. Agenda do primeiro mês confirmada em até 48h.</td></tr>
+          </tbody>
+          <tbody class="wk">
+            <tr class="wk-head"><th scope="rowgroup" colspan="10"><div class="wk-line"><span class="wk-k">Semana 4</span><span class="wk-d">D-7 a D0</span></div></th></tr>
+            
+            <tr><td class="c-n">10</td><th scope="row" class="c-ev">Encontro de abertura do ciclo</th><td>Apresentar calendário, combinados, mentores e a forma de acompanhamento, e formalizar o compromisso dos negócios.</td><td>Apresentação e dinâmica de integração, com assinatura digital do termo de compromisso e do termo de uso de imagem.</td><td class="c-resp">Maria Alice Magalhães de Castro<span>Analista de projetos</span></td><td>20 negócios, mentores e coordenação; financiador convidado</td><td class="c-when">D0, às 9h</td><td class="c-dur">3 horas</td><td>Videoconferência, com gravação</td><td>Presença por formulário, prints de tela, gravação e ata no kit de evidências. Primeiro report semanal enviado no mesmo dia.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTE 5 ============ -->
+<section class="section" id="comunicacao" aria-labelledby="h-com">
+  <div class="wrap">
+    <p class="part"><svg class="part-mark" viewBox="0 0 100 96" aria-hidden="true"><path d="M55 4H83A13 13 0 0 1 96 17V45A13 13 0 0 1 83 58H57A9 9 0 0 0 48 67V80A12 12 0 0 1 36 92H16A12 12 0 0 1 4 80V60A12 12 0 0 1 16 48H33A9 9 0 0 0 42 39V17A13 13 0 0 1 55 4Z"/></svg><span class="part-label">Parte 5</span></p>
+    <h2 id="h-com">Comunicação <span class="light">com os participantes</span></h2>
+    <p class="lead">A mensagem abaixo vai individualmente para quem está com baixa resposta: personalizada, com um único pedido e prazo, e com espaço para as barreiras reais.</p>
+
+    <div class="msg-grid">
+      <div>
+        <div class="phone">
+          <div class="phone-bar"><span class="avatar" aria-hidden="true">PA</span><div><b>Programa de aceleração</b><span>WhatsApp institucional · mensagem individual</span></div></div>
+          <div class="bubble" id="msg-text">
+            <p>Olá, <mark>[nome]</mark>! Tudo bem?</p>
+            <p>Aqui é <mark>[seu nome]</mark>, da equipe do programa de aceleração do Impact Hub.</p>
+            <p>Nosso ciclo começa em <mark>[data]</mark>, e a participação do <mark>[negócio]</mark> nos encontros e mentorias é o que faz o programa gerar resultado de verdade para vocês.</p>
+            <p>Pode me confirmar até <mark>[dia]</mark> sua presença no encontro de abertura? É só responder por aqui.</p>
+            <p>Se algo estiver dificultando (agenda, internet, deslocamento), me conta, e a gente encontra junto a melhor solução.</p>
+            <p>Contamos com você!</p>
+          </div>
+          <div class="copy-row">
+            <button type="button" class="btn" id="copy-msg">Copiar mensagem</button>
+            <span class="copy-hint" id="copy-hint" aria-live="polite">Os campos entre colchetes são personalizados.</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sub-head"><h3>Por que ela foi escrita assim</h3></div>
+        <ul class="why">
+          <li><b>Personalizada</b> com o nome da pessoa e do negócio, para não parecer disparo em massa.</li>
+          <li><b>Reforça o valor</b> para o negócio, não a obrigação.</li>
+          <li><b>Um único pedido, simples e com prazo,</b> para facilitar a resposta.</li>
+          <li><b>Acolhe barreiras</b> como agenda, internet e deslocamento, sem tom de cobrança.</li>
+        </ul>
+        <div class="sub-head" style="margin-top:36px"><h3>Se não houver retorno</h3></div>
+        <ol class="ladder">
+          <li><span class="k">Em 48 horas</span><p>Ligação do ponto focal ou áudio curto, se a pessoa preferir.</p></li>
+          <li><span class="k">Persistindo</span><p>Registro no semáforo (Parte 4) e, depois, no report semanal.</p></li>
+          <li><span class="k">6 sem diagnóstico</span><p>O pedido passa a ser concluir o diagnóstico inicial, com a oferta de fazê-lo junto por ligação.</p></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTE 6 ============ -->
+<section class="section alt" id="visao" aria-labelledby="h-visao">
+  <div class="wrap">
+    <p class="part"><svg class="part-mark" viewBox="0 0 100 96" aria-hidden="true"><path d="M55 4H83A13 13 0 0 1 96 17V45A13 13 0 0 1 83 58H57A9 9 0 0 0 48 67V80A12 12 0 0 1 36 92H16A12 12 0 0 1 4 80V60A12 12 0 0 1 16 48H33A9 9 0 0 0 42 39V17A13 13 0 0 1 55 4Z"/></svg><span class="part-label">Parte 6 <span class="part-note">· pergunta escolhida</span></span></p>
+    <h2 id="h-visao">Visão do projeto <span class="light">como um todo</span></h2>
+    <p class="lead">Priorizo a aceleração em andamento, antecipo as decisões do hackathon e dou à trilha de investimento uma agenda fixa, para que as três frentes avancem sem que uma consuma as outras. Escolhi a pergunta 6 porque ela descreve o objetivo do cargo: conduzir a execução do projeto em suas diferentes frentes.</p>
+
+    <figure class="fronts">
+      <div class="fronts-row">
+        <div class="front f-hack">
+          <p class="front-prio"><i class="swatch"></i>Prioridade 2</p>
+          <h4>Hackathon regional</h4>
+          <p class="d">Gera pipeline para o próximo ciclo.</p>
+        </div>
+        <div class="arrow" aria-hidden="true"><span>pipeline do próximo ciclo</span><svg viewBox="0 0 54 16"><path d="M1 8H51" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M45 3l6 5-6 5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></div>
+        <div class="front main f-acel">
+          <p class="front-prio"><i class="swatch"></i>Prioridade 1</p>
+          <h4>Ciclo de aceleração</h4>
+          <p class="d">20 negócios em 10 semanas, com evidências ao financiador.</p>
+        </div>
+        <div class="arrow" aria-hidden="true"><span>finalistas seguem</span><svg viewBox="0 0 54 16"><path d="M1 8H51" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M45 3l6 5-6 5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></div>
+        <div class="front f-inv">
+          <p class="front-prio"><i class="swatch"></i>Prioridade 3</p>
+          <h4>Trilha de investimento</h4>
+          <p class="d">Finalistas do ciclo anterior, com apoio da consultoria.</p>
+        </div>
+      </div>
+      <p class="gov"><b>Governança:</b> dados, evidências e report semanal atravessam as três frentes</p>
+      <figcaption>Cada negócio passa pelas frentes da esquerda para a direita. Hoje, cada frente atende uma turma diferente: o hackathon forma a próxima, a aceleração cuida da atual e a trilha prepara a anterior.</figcaption>
+    </figure>
+
+    <div class="sub duo">
+      <div>
+        <div class="sub-head"><h3>O que priorizo e por quê</h3></div>
+        <ol class="prio-list">
+          <li class="f-acel"><span class="rank">1</span><div><b>Aceleração em andamento</b><p>São 20 negócios com atividades semanais, datas fixas e evidências exigidas pelo financiador. Uma falha aqui atinge participantes, prestação de contas e a credibilidade das outras frentes.</p></div></li>
+          <li class="f-hack"><span class="rank">2</span><div><b>Hackathon de pipeline</b><p>Tem data fixa e não se remarca com facilidade, então sobe de prioridade conforme se aproxima. As decisões de prazo longo, como fornecedor e divulgação, são antecipadas.</p></div></li>
+          <li class="f-inv"><span class="rank">3</span><div><b>Apoio à trilha de investimento</b><p>A consultoria conduz o trabalho, e meu papel é de interlocução. É importante, mas cabe numa agenda fixa, sem virar urgência diária.</p></div></li>
+        </ol>
+      </div>
+      <div>
+        <div class="tiebreak">
+          <p class="kicker"><span>Critério de desempate</span></p>
+          <p>Primeiro o que é irreversível, como um evento com data marcada, e o que deixa alguém travado esperando por mim. Depois, o que pode ser reorganizado.</p>
+        </div>
+        <div class="sub-head" style="margin-top:32px"><h3>Como mantenho o controle</h3></div>
+        <ul class="bullets">
+          <li><b>Painel único</b> com as três frentes: status, próximas entregas e riscos.</li>
+          <li><b>Modelos compartilhados:</b> o mesmo kit de evidências e o mesmo formato de report servem às três frentes.</li>
+          <li><b>Escalonamento cedo:</b> quando a capacidade não fecha, levo à coordenação uma proposta de repriorização, não só o problema.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-head"><h3>Rotina semanal</h3></div>
+      <div class="routine-scroll">
+        <table class="routine">
+          <thead><tr><th scope="col"><span class="sr-only">Período</span></th><th scope="col">Segunda</th><th scope="col">Terça</th><th scope="col">Quarta</th><th scope="col">Quinta</th><th scope="col">Sexta</th></tr></thead>
+          <tbody>
+            <tr>
+              <th scope="row">Manhã</th>
+              <td class="f-gov"><span class="f-tag"><i class="swatch"></i>Governança</span>Planejamento das três frentes e alinhamento com a coordenação</td>
+              <td class="f-acel"><span class="f-tag"><i class="swatch"></i>Aceleração</span>Mentorias</td>
+              <td class="f-hack"><span class="f-tag"><i class="swatch"></i>Hackathon</span>Fornecedor, divulgação e inscrições</td>
+              <td class="f-acel"><span class="f-tag"><i class="swatch"></i>Aceleração</span>Encontro coletivo semanal</td>
+              <td class="f-hack"><span class="f-tag"><i class="swatch"></i>Hackathon</span>Logística e parceiros</td>
+            </tr>
+            <tr>
+              <th scope="row">Tarde</th>
+              <td class="f-acel"><span class="f-tag"><i class="swatch"></i>Aceleração</span>Contato com negócios em alerta</td>
+              <td class="f-acel"><span class="f-tag"><i class="swatch"></i>Aceleração</span>Registros das mentorias e suporte aos mentores</td>
+              <td class="f-inv"><span class="f-tag"><i class="swatch"></i>Investimento</span>Ponto fixo com a consultoria</td>
+              <td class="f-acel"><span class="f-tag"><i class="swatch"></i>Aceleração</span>Registros e evidências do encontro</td>
+              <td class="f-gov"><span class="f-tag"><i class="swatch"></i>Governança</span>Consolidação de dados e evidências; envio do report</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mix">
+        <p class="mix-title">Metade dos blocos da semana vai para a aceleração</p>
+        <div class="mix-bar" role="img" aria-label="Blocos da semana: aceleração 5, hackathon 2, trilha de investimento 1, governança 2, de 10">
+          <span class="f-acel" style="flex:5 1 0" title="Aceleração: 5 de 10 blocos"></span>
+          <span class="f-hack" style="flex:2 1 0" title="Hackathon: 2 de 10 blocos"></span>
+          <span class="f-inv" style="flex:1 1 0" title="Trilha de investimento: 1 de 10 blocos"></span>
+          <span class="f-gov" style="flex:2 1 0" title="Governança: 2 de 10 blocos"></span>
+        </div>
+        <ul class="mix-legend">
+          <li class="f-acel"><i class="swatch"></i>Aceleração <b>5</b></li>
+          <li class="f-hack"><i class="swatch"></i>Hackathon <b>2</b></li>
+          <li class="f-inv"><i class="swatch"></i>Trilha de investimento <b>1</b></li>
+          <li class="f-gov"><i class="swatch"></i>Governança <b>2</b></li>
+        </ul>
+      </div>
+      <p class="routine-note">Os dias acompanham o calendário real do ciclo. Nas duas semanas anteriores ao hackathon, os blocos dele dobram; na reta final, com banca e Demo Day, a aceleração ocupa a maior parte da agenda.</p>
+    </div>
+
+    <div class="sub">
+      <div class="sub-head"><h3>Sinergias entre as frentes</h3></div>
+      <ul class="bullets">
+        <li>Negócios do ciclo anterior, hoje na <b>trilha de investimento</b>, participam do hackathon como cases.</li>
+        <li>O que a consultoria aprende sobre o que investidores buscam alimenta o conteúdo da <b>aceleração</b> e a preparação para banca e Demo Day.</li>
+        <li>Os participantes do <b>hackathon</b> formam o pipeline do próximo ciclo, com dados já coletados no formato da base única.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <p class="foot-big"><b>Muito obrigada</b> pelo seu tempo!</p>
+    <p class="small">Resolução elaborada por <b>Maria Alice</b> para o processo seletivo de Pessoa Analista Pleno de Projetos de Aceleração e Comunidades.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Filtro de prioridade do plano de ação
+  var buttons = document.querySelectorAll('[data-filter]');
+  var rows = document.querySelectorAll('.act-row');
+  var groups = document.querySelectorAll('tbody.wk');
+  var count = document.getElementById('act-count');
+  function apply(f){
+    var shown = 0;
+    rows.forEach(function(r){ var on = f === 'all' || r.getAttribute('data-p') === f; r.hidden = !on; if(on) shown++; });
+    groups.forEach(function(g){
+      var any = g.querySelector('.act-row:not([hidden])');
+      var note = g.querySelector('.wk-empty');
+      if(note) note.hidden = !!any;
+    });
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-filter') === f)); });
+    if(count) count.textContent = shown + (shown === 1 ? ' atividade' : ' atividades');
+  }
+  buttons.forEach(function(b){ b.addEventListener('click', function(){ apply(b.getAttribute('data-filter')); }); });
+
+  // Copiar a mensagem de WhatsApp
+  var copyBtn = document.getElementById('copy-msg');
+  var msg = document.getElementById('msg-text');
+  var hint = document.getElementById('copy-hint');
+  if(copyBtn && msg){
+    copyBtn.addEventListener('click', function(){
+      var text = Array.prototype.map.call(msg.querySelectorAll('p'), function(p){ return p.textContent.trim(); }).join('\n\n');
+      function done(){ copyBtn.textContent = 'Mensagem copiada'; if(hint) hint.textContent = 'Cole no WhatsApp e troque os campos entre colchetes.'; setTimeout(function(){ copyBtn.textContent = 'Copiar mensagem'; }, 2400); }
+      function fallback(){
+        try{ var r = document.createRange(); r.selectNodeContents(msg); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }catch(e){}
+        if(hint) hint.textContent = 'Texto selecionado: use Ctrl+C (ou Cmd+C) para copiar.';
+      }
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(done, fallback); }
+        else { fallback(); }
+      }catch(e){ fallback(); }
+    });
+  }
+
+  // Avanço das atividades: etapas e projeto somam pesados pela duração; valores ficam no navegador de quem preenche
+  (function(){
+    var KEY='plano-avanco-v2', store=null;
+    try{ store=JSON.parse(localStorage.getItem(KEY)||'null'); }catch(e){ store=null; }
+    if(!store){
+      // versão anterior do plano: os códigos das semanas 2 a 4 mudaram com as reuniões de alinhamento e aprovação
+      store={};
+      var MOVED={'1.2.1':'1.2.2','1.2.2':'1.2.3','1.2.3':'1.2.4','1.2.4':'1.2.5','1.3.1':'1.3.2','1.3.2':'1.3.3','1.3.3':'1.3.4','1.3.4':'1.3.5','1.3.5':'1.3.6','1.3.6':'1.3.7','1.3.7':'1.3.8','1.4.1':'1.4.2','1.4.2':'1.4.3','1.4.3':'1.4.4','1.4.4':'1.4.6'};
+      try{ var old=JSON.parse(localStorage.getItem('plano-avanco-v1')||'{}')||{}; Object.keys(old).forEach(function(k){ store[MOVED[k]||k]=old[k]; }); if(Object.keys(store).length) localStorage.setItem(KEY,JSON.stringify(store)); }catch(e){}
+    }
+    var inputs=Array.prototype.slice.call(document.querySelectorAll('table.plan input.prog-in'));
+    function clamp(v){ v=Math.round(Number(v)); if(isNaN(v)) v=0; return Math.max(0,Math.min(100,v)); }
+    function weight(row){ var d=row.querySelector('.c-dur'); var n=parseInt(d?d.textContent:'',10); return isNaN(n)?1:n; }
+    function paint(cell,v){ var bar=cell.querySelector('.prog-bar i'); if(bar) bar.style.width=v+'%'; cell.classList.toggle('done',v>=100); }
+    function rollup(){
+      var groups={}, tw=0, tv=0;
+      inputs.forEach(function(inp){
+        var row=inp.closest('tr'); var code=inp.getAttribute('data-code'); var stage=code.split('.').slice(0,2).join('.');
+        var w=weight(row), v=clamp(inp.value);
+        if(!groups[stage]) groups[stage]={w:0,v:0};
+        groups[stage].w+=w; groups[stage].v+=w*v; tw+=w; tv+=w*v;
+      });
+      document.querySelectorAll('table.plan [data-sum]').forEach(function(cell){
+        var k=cell.getAttribute('data-sum'); var g=(k==='1')?{w:tw,v:tv}:groups[k];
+        var pct=(g&&g.w)?Math.round(g.v/g.w):0;
+        var out=cell.querySelector('.prog-val'); if(out) out.textContent=pct+'%';
+        paint(cell,pct);
+      });
+    }
+    inputs.forEach(function(inp){
+      var code=inp.getAttribute('data-code');
+      if(store[code]!=null) inp.value=clamp(store[code]);
+      paint(inp.closest('td'),clamp(inp.value));
+      inp.addEventListener('input',function(){ paint(inp.closest('td'),clamp(inp.value)); rollup(); });
+      inp.addEventListener('change',function(){
+        var v=clamp(inp.value); inp.value=v; store[code]=v;
+        try{ localStorage.setItem(KEY,JSON.stringify(store)); }catch(e){}
+        paint(inp.closest('td'),v); rollup();
+      });
+    });
+    rollup();
+  })();
+
+  // Gantt do plano de ação: montado a partir da tabela, com o avanço e o filtro atuais
+  (function(){
+    var btn=document.getElementById('open-gantt'), dlg=document.getElementById('gantt-dlg');
+    var box=document.getElementById('gantt'), note=document.getElementById('gantt-note'), close=document.getElementById('close-gantt');
+    if(!btn || !dlg || !box) return;
+    var DAY=40, WE=14, PAD=56, WD=['seg','ter','qua','qui','sex'];
+    function num(t){ t=(t||'').trim(); if(t==='D0') return 0; var n=parseInt(t.replace('D',''),10); return isNaN(n)?null:n; }
+    function dl(k){ return k===0 ? 'D0' : 'D'+k; }
+    function wday(k){ return ((k%7)+7)%7; } // D0 é segunda-feira
+    function esc(t){ return String(t).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+    function txt(el){ return el ? el.textContent.trim() : ''; }
+    function period(r){ return r.ini===r.fim ? dl(r.ini) : dl(r.ini)+' a '+dl(r.fim); }
+    function util(d){ return /dias?$/.test(d) ? d+' úteis' : d; }
+    function build(){
+      var tbl=document.querySelector('table.plan'); if(!tbl) return;
+      var rows=[], root=null;
+      Array.prototype.forEach.call(tbl.querySelectorAll('tbody tr'), function(tr){
+        var d=tr.querySelectorAll('td.c-d'), ini=d[0]?num(d[0].textContent):null, fim=d[1]?num(d[1].textContent):null;
+        var dur=txt(tr.querySelector('.c-dur')), sum=tr.querySelector('[data-sum] .prog-val');
+        if(tr.classList.contains('root-row')){
+          root={t:'root', code:txt(tr.querySelector('.c-n')), name:txt(tr.querySelector('.c-act b')), ini:ini, fim:fim, dur:dur, pct:txt(sum)};
+          rows.push(root);
+        } else if(tr.classList.contains('wk-head')){
+          rows.push({t:'stage', code:txt(tr.querySelector('.wk-edt')), wk:txt(tr.querySelector('.wk-k')), name:txt(tr.querySelector('.wk-name')), ini:ini, fim:fim, dur:dur, pct:txt(sum)});
+        } else if(tr.classList.contains('act-row')){
+          if(tr.hidden) return;
+          var inp=tr.querySelector('input.prog-in'), pred=txt(tr.querySelector('.c-pred'));
+          var v=inp ? Math.max(0, Math.min(100, Math.round(Number(inp.value)||0))) : 0;
+          rows.push({t: dur==='Marco' ? 'ms' : 'act', code:txt(tr.querySelector('.c-n')), name:txt(tr.querySelector('.c-act')), p:tr.getAttribute('data-p'), ini:ini, fim:fim, dur:dur, pred:(pred==='—' || !pred) ? 'nenhuma' : pred, v:v});
+        } else if(tr.classList.contains('buf-row')){
+          rows.push({t:'buf', name:'Buffer da etapa', ini:ini, fim:fim, dur:dur});
+        }
+      });
+      if(!root || root.ini===null || root.fim===null) return;
+      // colunas: um dia útil por coluna; cada fim de semana vira uma faixa estreita
+      var cols=[], pos={}, x=0, we=false;
+      for(var k=root.ini; k<=root.fim; k++){
+        if(wday(k)>=5){ if(!we){ cols.push({we:true, x:x, w:WE}); x+=WE; we=true; } continue; }
+        we=false; cols.push({k:k, x:x, w:DAY}); pos[k]={x0:x, x1:x+DAY}; x+=DAY;
+      }
+      var tw=x+PAD;
+      // grupos do cabeçalho: as semanas da tabela e, por fim, a abertura
+      var groups=[], cur=null;
+      cols.forEach(function(c){
+        if(c.we){ cur=null; groups.push({we:true, w:c.w}); return; }
+        if(!cur){
+          var st=rows.filter(function(r){ return r.t==='stage' && r.ini<=c.k && c.k<=r.fim; })[0];
+          cur={label: c.k===root.fim ? 'Abertura' : (st ? st.wk : ''), w:0}; groups.push(cur);
+        }
+        cur.w+=c.w;
+      });
+      function span(r){ var a=pos[r.ini], b=pos[r.fim]; return (a && b) ? {x:a.x0, w:b.x1-a.x0} : null; }
+      var h=[];
+      h.push('<div class="g-head"><div class="g-lab">EDT · Atividade</div><div class="g-hcols"><div class="g-hgroups">');
+      groups.forEach(function(g){ h.push(g.we ? '<span class="g-hwe" style="width:'+g.w+'px"></span>' : '<span class="g-hgrp" style="width:'+g.w+'px">'+esc(g.label)+'</span>'); });
+      h.push('<span class="g-hpad" style="width:'+PAD+'px"></span></div><div class="g-hdays">');
+      cols.forEach(function(c){ h.push(c.we ? '<span class="g-hwe" style="width:'+c.w+'px" title="Fim de semana"></span>' : '<span class="g-hday" style="width:'+c.w+'px"><small>'+WD[wday(c.k)]+'</small>'+dl(c.k)+'</span>'); });
+      h.push('<span class="g-hpad" style="width:'+PAD+'px"></span></div></div></div>');
+      h.push('<div class="g-body"><div class="g-grid" aria-hidden="true">');
+      cols.forEach(function(c){ h.push('<span class="'+(c.we?'g-gwe':'g-gday')+'" style="left:'+c.x+'px;width:'+c.w+'px"></span>'); });
+      h.push('</div>');
+      rows.forEach(function(r){
+        var s=span(r), lab='', bar='', cls='g-row';
+        if(r.t==='root'){
+          cls+=' g-root';
+          lab='<span class="g-code">'+esc(r.code)+'</span><span class="g-name"><b>'+esc(r.name)+'</b></span><span class="g-pct">'+esc(r.pct)+'</span>';
+          if(s) bar='<span class="g-sum root" style="left:'+s.x+'px;width:'+s.w+'px" title="'+esc(r.name+' · '+util(r.dur)+' · '+period(r)+' · avanço '+r.pct)+'"></span>';
+        } else if(r.t==='stage'){
+          cls+=' g-stage';
+          lab='<span class="g-code">'+esc(r.code)+'</span><span class="g-name"><span class="g-wk">'+esc(r.wk)+'</span><b>'+esc(r.name)+'</b></span><span class="g-pct">'+esc(r.pct)+'</span>';
+          if(s) bar='<span class="g-sum" style="left:'+s.x+'px;width:'+s.w+'px" title="'+esc(r.wk+' · '+r.name+' · '+util(r.dur)+' · '+period(r)+' · avanço '+r.pct)+'"></span>';
+        } else if(r.t==='buf'){
+          cls+=' g-buf-row';
+          lab='<span class="g-code" aria-hidden="true"></span><span class="g-name">'+esc(r.name)+'</span>';
+          if(s) bar='<span class="g-buf" style="left:'+s.x+'px;width:'+s.w+'px" title="'+esc(r.name+' · '+r.dur+' · '+period(r))+'"></span>';
+        } else if(r.t==='ms'){
+          lab='<span class="g-code">'+esc(r.code)+'</span><span class="g-name">'+esc(r.name)+'</span>';
+          var m=pos[r.ini];
+          if(m) bar='<span class="g-ms'+(r.ini===root.fim?' final':'')+'" style="left:'+(m.x0+DAY/2-8)+'px" title="'+esc(r.code+' · '+r.name+' · marco em '+dl(r.ini))+'"></span>';
+        } else {
+          lab='<span class="g-code">'+esc(r.code)+'</span><span class="g-name">'+esc(r.name)+'</span>';
+          if(s) bar='<span class="g-bar '+esc((r.p||'').toLowerCase())+'" style="left:'+s.x+'px;width:'+s.w+'px" title="'+esc(r.code+' · '+r.name+'\n'+r.p+' · '+util(r.dur)+' · '+period(r)+'\nPredecessora: '+r.pred+'\nAvanço: '+r.v+'%')+'"></span>'
+                   +'<span class="g-prog'+(r.v>=100?' done':'')+'" style="left:'+s.x+'px;width:'+s.w+'px" aria-hidden="true"><i style="width:'+r.v+'%"></i></span>';
+        }
+        h.push('<div class="'+cls+'"><div class="g-lab">'+lab+'</div><div class="g-track">'+bar+'</div></div>');
+      });
+      h.push('</div>');
+      box.style.setProperty('--tw', tw+'px');
+      box.innerHTML=h.join('');
+      var f=document.querySelector('[data-filter][aria-pressed="true"]'), fv=f ? f.getAttribute('data-filter') : 'all';
+      if(note) note.textContent = fv==='all' ? '' : 'Mostrando só as atividades '+fv+', como no filtro da tabela.';
+    }
+    btn.addEventListener('click', function(){
+      build();
+      if(typeof dlg.showModal==='function'){ dlg.showModal(); } else { dlg.setAttribute('open',''); }
+      var sc=dlg.querySelector('.gantt-scroll'); if(sc){ sc.scrollTop=0; sc.scrollLeft=0; }
+    });
+    function shut(){ if(typeof dlg.close==='function'){ dlg.close(); } else { dlg.removeAttribute('open'); } btn.focus(); }
+    if(close) close.addEventListener('click', shut);
+    dlg.addEventListener('click', function(e){ if(e.target===dlg) shut(); });
+  })();
+
+  // Cabeçalhos das tabelas acompanham a rolagem
+  function stickyHeads(){
+    try{
+      var toc=document.querySelector('.toc');
+      document.documentElement.style.setProperty('--toc-h',(toc?toc.offsetHeight:0)+'px');
+      document.querySelectorAll('.table-scroll').forEach(function(box){
+        var t=box.querySelector('table');
+        if(!t) return;
+        box.classList.toggle('fits', t.offsetWidth <= box.clientWidth + 1);
+        var edt=t.querySelector('thead th.c-n'); if(edt) t.style.setProperty('--edt-w', edt.getBoundingClientRect().width+'px');
+        var head=t.tHead, off=0;
+        if(!head) return;
+        Array.prototype.forEach.call(head.rows,function(r){
+          Array.prototype.forEach.call(r.cells,function(c){ c.style.setProperty('--row-off',off+'px'); });
+          off+=r.getBoundingClientRect().height;
+        });
+      });
+    }catch(e){}
+  }
+  // Colunas congeladas: as duas primeiras ficam fixas quando a tabela rola para o lado
+  function freezeCols(){
+    try{
+      document.querySelectorAll('.table-scroll > table:not(.plan), .routine-scroll > table').forEach(function(t){
+        var box=t.parentElement;
+        var over=t.offsetWidth > box.clientWidth + 1;
+        var row=t.querySelector('tbody tr:not(.wk-head)');
+        var a=row && row.cells[0], b=row && row.cells[1];
+        var c1=a ? a.getBoundingClientRect().width : 0, c2=b ? b.getBoundingClientRect().width : 0;
+        t.style.setProperty('--c1-w', c1+'px');
+        t.style.setProperty('--box-w', box.clientWidth+'px');
+        t.classList.toggle('frz', over);
+        t.classList.toggle('frz2', over && (c1 + c2) <= box.clientWidth * 0.7);
+      });
+    }catch(e){}
+  }
+  function layoutTables(){ stickyHeads(); freezeCols(); }
+  layoutTables();
+  var rafId=0;
+  window.addEventListener('resize',function(){ cancelAnimationFrame(rafId); rafId=requestAnimationFrame(layoutTables); });
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(layoutTables); }
+
+  // Destaque da seção atual na navegação
+  try{
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+    var list = document.querySelector('.toc ol');
+    var byId = {};
+    links.forEach(function(l){ byId[l.getAttribute('href').slice(1)] = l; });
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var l = byId[en.target.id];
+        if(!l) return;
+        links.forEach(function(x){ x.removeAttribute('aria-current'); });
+        l.setAttribute('aria-current','location');
+        if(list){
+          var left = l.offsetLeft, right = left + l.offsetWidth;
+          if(left < list.scrollLeft || right > list.scrollLeft + list.clientWidth){ list.scrollLeft = Math.max(0, left - 16); }
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    document.querySelectorAll('main > section[id]').forEach(function(s){ obs.observe(s); });
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
